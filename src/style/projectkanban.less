@@ -1,0 +1,115 @@
+#projectkanban {
+  .kbtop {
+    background: #ffffff;
+    .forediv {
+      padding: 0 0.32rem;
+      box-sizing: border-box;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .forediv_item {
+        width: 49%;
+        margin-bottom: 0.3rem;
+        box-sizing: border-box;
+        height: 1.78rem;
+
+        background: #f3f4f8;
+        border: 0px solid #0089ff;
+        border-radius: 0.11rem;
+        display: flex;
+        align-items: center;
+        img {
+          width: 1.41rem;
+          height: 1.41rem;
+          margin: 0 0.3rem;
+        }
+        .forediv_item_div {
+          .itemtop {
+            font-size: 0.4rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #000000;
+          }
+          .itemnum {
+            font-size: 0.33rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #0089ff;
+          }
+        }
+      }
+    }
+  }
+  .listBody {
+    .listBody_item {
+      width: 95%;
+      margin: 0.4rem auto;
+      padding-bottom: 0.2rem;
+      //   height: 2.72rem;
+      background: #ffffff;
+      border-radius: 0.22rem;
+      .itemtop {
+        padding: 0.3rem 0;
+        display: flex;
+        justify-content: space-between;
+
+        .itemleft {
+          font-size: 0.37rem;
+          font-family: PingFang SC;
+          font-weight: bold;
+          color: #000000;
+          margin-left: 0.4rem;
+        }
+
+        .itemright {
+          text-align: center;
+          width: 1.77rem;
+          height: 0.64rem;
+          background: #ff9124;
+          box-shadow: 0rem 0rem 0rem 0rem rgba(255, 145, 36, 0.29);
+          border-radius: 0.3rem 0rem 0rem 0rem;
+          font-size: 0.4rem;
+          font-family: PingFang SC;
+          font-weight: 500;
+          color: #ffffff;
+        }
+      }
+      .itemcon {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .conone {
+          .cononetop {
+            height: 1rem;
+
+            font-size: 0.6rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #ff1f1f;
+            transform: scale(1, 1.4);
+          }
+          .cononetopqq {
+            height: 1rem;
+            text-align: center;
+            line-height: 1rem;
+
+            font-size: 0.35rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #000000;
+          }
+          .cononebot {
+            text-align: center;
+
+            margin-top: 0.2rem;
+            font-size: 0.33rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #666666;
+          }
+        }
+      }
+    }
+  }
+}

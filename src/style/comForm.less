@@ -1,0 +1,98 @@
+#comForm {
+  .van-cell::after {
+    border-bottom: 0;
+  }
+  .textarea {
+    .van-field__control {
+      height: 4.41rem !important;
+    }
+  }
+  .van-cell {
+    .van-cell__title {
+      font-size: 0.4rem;
+      font-family: PingFang SC;
+      width: 100%;
+      color: #000;
+    }
+    display: inherit;
+    .van-cell__value {
+      margin-top: 0.4rem;
+      .van-field__body {
+        .van-field__control {
+          background: #f3f5f7;
+          padding: 0.2rem;
+          color: #999999;
+
+          height: 1.3rem;
+
+          border-radius: 0.15rem;
+          font-size: 0.4rem;
+        }
+      }
+    }
+  }
+  .ddupload {
+    background-color: #fff;
+    padding: 0.26667rem 0.42667rem;
+    .ddtitle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.4rem;
+      font-family: PingFang SC;
+      width: 100%;
+      color: #000;
+      .ddleft {
+      }
+      .ddright {
+        color: #1989fa;
+      }
+    }
+    .ddlist {
+      margin-top: 0.4rem;
+      background: #f3f5f7;
+      padding: 0.2rem;
+      border-radius: 0.17rem;
+      .ddlist_item {
+        // border: 1px solid red;
+        margin-top: 0.2rem;
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        img {
+          width: 1.05rem;
+          height: 1.2rem;
+          margin-right: 0.2rem;
+        }
+        .ddfilename {
+          flex: 1;
+          .topname {
+            font-size: 0.37rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #000000;
+            line-height: 0.8rem;
+          }
+          .botname {
+            font-size: 0.35rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #999999;
+          }
+        }
+      }
+    }
+  }
+  .subbtn {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #fff;
+    text-align: center;
+    padding: 0.2rem 0 1rem;
+    .van-button {
+      width: 90%;
+      margin: auto;
+    }
+  }
+}
