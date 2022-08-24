@@ -22,6 +22,8 @@ import 'lib-flexible/flexible';
 Vue.prototype.$utils = utils;
 Vue.prototype.axiosPost = utils.axiosPost; //axios post 请求
 Vue.prototype.axiosGet = utils.axiosGet; //axios get 请求
+import selectApi from './config/selectApi.js';
+Vue.prototype.selectApi = selectApi;
 
 Vue.config.productionTip = false;
 

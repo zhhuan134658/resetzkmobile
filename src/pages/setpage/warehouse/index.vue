@@ -4,11 +4,21 @@
     <van-sticky>
       <van-search
         v-model="searchValue"
-        right-icon="filter-o"
         left-icon=""
         placeholder="请输入搜索关键词"
         @search="onSearch"
-      />
+        clearable
+      >
+        <template #right-icon>
+          <van-icon
+            v-if="objectlength > 0"
+            @click="vipsearch"
+            name="filter-o"
+            :badge="objectlength"
+          />
+          <van-icon v-else @click="vipsearch" name="filter-o" />
+        </template>
+      </van-search>
     </van-sticky>
 
     <van-list
@@ -63,6 +73,7 @@ export default {
   name: '',
   data() {
     return {
+      searchForm: {},
       //   11111111111111111111111
     };
   },
@@ -72,6 +83,15 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
+    //筛选
+    vipsearch() {
+      this.$router.push({
+        path: '/setpage/comSearch',
+        query: {
+          searchTyppe: 'warehouse_info',
+        },
+      });
+    },
     //   删除
     deleteitem(item) {
       this.$dialog

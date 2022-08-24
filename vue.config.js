@@ -26,6 +26,9 @@ module.exports = {
       filename: `./static/[name].${Timestamp}.js`,
       chunkFilename: `./static/[name].${Timestamp}.js`,
     },
+    // externals: {
+    //   vant: 'Vant',
+    // },
     plugins: [
       new CompressionPlugin({
         algorithm: 'gzip', // 使用gzip压缩

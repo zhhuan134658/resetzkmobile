@@ -1,6 +1,8 @@
 const baseMixin = {
   data() {
     return {
+      objectlength: 0,
+
       loading: false, // 是否处在加载状态
       finished: false, // 是否已加载完成
       error: false, // 是否加载失败
@@ -42,6 +44,11 @@ const baseMixin = {
       this.proList = []; // 清空数组
       this.onLoad(); // 重新加载数据
     },
+  },
+  created() {
+    let asad = this.$store.state.parmarsData;
+
+    this.objectlength = Object.getOwnPropertyNames(asad).length - 1;
   },
 };
 export default baseMixin;

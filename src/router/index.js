@@ -63,6 +63,11 @@ const routes = [
             name: 'workbenchpage',
             component: () => import('../pages/workbench/workbenchpage.vue'),
           },
+          {
+            path: '/workbench/allapplication',
+            name: 'allapplication',
+            component: () => import('../pages/workbench/allapplication.vue'),
+          },
           //工程文档-最近文件
           {
             path: '/engineeringDocument/latelyFile',
@@ -194,6 +199,12 @@ const routes = [
             name: 'peoplelist',
             component: () =>
               import('../pages/setpage/rolemembers/peoplelist.vue'),
+          },
+          //搜索
+          {
+            path: '/setpage/comSearch',
+            name: 'comSearch',
+            component: () => import('../components/comSearch.vue'),
           },
         ],
       },

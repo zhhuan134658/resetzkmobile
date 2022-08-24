@@ -4,11 +4,21 @@
     <van-sticky>
       <van-search
         v-model="searchValue"
-        right-icon="filter-o"
         left-icon=""
         placeholder="请输入搜索关键词"
         @search="onSearch"
-      />
+        clearable
+      >
+        <template #right-icon>
+          <van-icon
+            v-if="objectlength > 0"
+            @click="vipsearch"
+            name="filter-o"
+            :badge="objectlength"
+          />
+          <van-icon v-else @click="vipsearch" name="filter-o" />
+        </template>
+      </van-search>
     </van-sticky>
 
     <van-list
@@ -63,6 +73,7 @@ export default {
   name: '',
   data() {
     return {
+      objectlength: 0,
       //   11111111111111111111111
     };
   },
@@ -72,6 +83,15 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
+    //筛选
+    vipsearch() {
+      this.$router.push({
+        path: '/setpage/comSearch',
+        query: {
+          searchTyppe: 'supplier_info',
+        },
+      });
+    },
     //   删除
     deleteitem(item) {
       this.$dialog
@@ -102,12 +122,16 @@ export default {
     },
 
     getTableList() {
+      console.log('++++++++++++++++++', this.$store.state.parmarsData);
+      let searce = this.$store.state.parmarsData;
+
       let parmars = {
         number: 10,
         page: this.page,
 
         b_name: 'supplier_info',
       };
+      Object.assign(parmars, searce);
       if (this.searchValue) {
         Object.assign(parmars, { biz_data: `like|${this.searchValue}` });
       }
@@ -153,6 +177,10 @@ export default {
   },
   //⽣命周期 - 创建完成（可以访问当前this实例）
   created() {
+    let asad = this.$store.state.parmarsData;
+
+    this.objectlength = Object.getOwnPropertyNames(asad).length - 1;
+
     // this.getTableList();
   },
   //⽣命周期 - 挂载完成（可以访问DOM元素）

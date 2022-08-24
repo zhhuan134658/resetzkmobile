@@ -1,8 +1,25 @@
 <!--  -->
 <template>
   <div id="workbenchpage">
+    <!-- 工作台 -->
+    <div style="height: 0.2rem"></div>
+    <div class="content">
+      <div
+        class="content_item"
+        v-for="(item, index) in contentList"
+        :key="index"
+        @click="goNest(item)"
+      >
+        <img
+          src="https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/5d5dJY5esj1661223067570.png"
+          alt=""
+        />
+        <div class="item_font">{{ item.name }}</div>
+      </div>
+    </div>
+
     <!-- 常用应用 -->
-    <div class="common_app">
+    <!-- <div class="common_app">
       <div class="toptit">
         <div class="topdiv">常用应用</div>
         <van-icon size="20" name="setting-o" />
@@ -21,7 +38,7 @@
           <div class="comfont">{{ item.name }}</div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -30,6 +47,22 @@ export default {
   name: '',
   data() {
     return {
+      contentList: [
+        { name: '项目立项', imgurl: '' },
+        { name: '投标', imgurl: '' },
+        { name: '招标', imgurl: '' },
+        { name: '成本', imgurl: '' },
+        { name: '收入', imgurl: '' },
+        { name: '支出', imgurl: '' },
+        { name: '财务', imgurl: '' },
+        { name: '技术', imgurl: '' },
+
+        { name: '任务', imgurl: '' },
+        { name: '工程文档', imgurl: '' },
+        { name: '设置', imgurl: '' },
+        { name: '自定义', imgurl: '' },
+      ],
+
       filelist: [
         { name: '最近文件', path: '/engineeringDocument/latelyFile' },
         { name: '回收站', path: '/engineeringDocument/recycleBin' },
@@ -46,6 +79,11 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
+    goNest() {
+      this.$router.push({
+        path: '/workbench/allapplication',
+      });
+    },
     gopage(item) {
       if (item.name == '规范图集') {
         const _this = this;

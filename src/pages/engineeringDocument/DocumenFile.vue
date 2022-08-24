@@ -50,7 +50,7 @@
     />
 
     <van-empty v-if="proList.length < 1" description="暂无数据" />
-    <!-- 文件的操做 -->
+    <!-- 文件的操作 -->
     <van-action-sheet
       v-model="actionshow"
       :actions="actionslist"
@@ -611,7 +611,7 @@ export default {
       //   }
       console.log('qqqq7777', item);
     },
-    //操做选项
+    //操作选项
     onSelect(item) {
       this.actionshow = false;
       if (item.name == '删除') {

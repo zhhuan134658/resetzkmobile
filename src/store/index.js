@@ -4,6 +4,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    searchData: {},
+    parmarsData: {},
     togglevisible: false,
     //!缓存 一般信息
     primaryColor: window.sessionStorage.getItem('primaryColor'),
@@ -26,6 +28,12 @@ export default new Vuex.Store({
   actions: {},
   getters: {},
   mutations: {
+    setsearchData(state, searchData) {
+      state.searchData = searchData;
+    },
+    setparmarsData(state, parmarsData) {
+      state.parmarsData = parmarsData;
+    },
     setBiaoName(state, biaoName) {
       state.biaoName = biaoName;
       sessionStorage.setItem('biaoName', biaoName);

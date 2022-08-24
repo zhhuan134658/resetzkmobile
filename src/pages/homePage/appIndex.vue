@@ -98,7 +98,23 @@ export default {
   name: 'application',
   data() {
     return {
-      filelist: [{ name: '最近文件', path: '' }],
+      filelist: [
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+        { name: '最近文件', path: '' },
+      ],
       imgurl: '',
       List: [
         {

@@ -1,4 +1,32 @@
 #workbench {
+  .content {
+    padding: 0.2rem;
+    box-sizing: border-box;
+    width: 95%;
+    background-color: #fff;
+
+    border-radius: 0.17rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .content_item {
+      width: 25%;
+      text-align: center;
+      margin-bottom: 0.3rem;
+      img {
+        width: 1.23rem;
+        height: 1.23rem;
+      }
+      .item_font {
+        margin-top: 0.3rem;
+        font-size: 0.33rem;
+        font-family: PingFang SC;
+        font-weight: bold;
+        color: #333333;
+      }
+    }
+  }
   .common_app {
     background-color: #fff;
     margin-top: 0.28rem;
@@ -77,181 +105,255 @@
       }
     }
   }
-  #latelyFile {
-    height: 100vh;
+}
+#allapplication {
+  .comuse {
     background-color: #fff;
-
-    .listBody {
-      .listBody_item {
-        // width: 95%;
-        padding: 0.3rem 0.2rem;
-        margin: auto;
-        //   height: 2.72rem;
-        box-sizing: border-box;
-        background: #ffffff;
-        // border-radius: 0.22rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        img {
-          width: 0.85rem;
-          height: 0.88rem;
-          margin-right: 0.2rem;
-        }
-        .middle {
-          width: 70%;
-          flex: 1;
-          .middletop {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            font-size: 0.35rem;
-            font-family: PingFang SC;
-            font-weight: 500;
-            color: #000000;
-          }
-          .middlebot {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            font-size: 0.32rem;
-            font-family: PingFang SC;
-            font-weight: 500;
-            color: #999999;
-          }
-        }
-        .iconcc {
-          margin: 0 0.2rem;
-        }
-      }
-    }
-    .ddupload {
-      width: 1.58rem;
-      height: 1.58rem;
-      position: fixed;
-      right: 1rem;
-      bottom: 2rem;
-    }
-    .bottomBtn {
-      position: absolute;
-      box-sizing: border-box;
-      bottom: 0;
-      width: 100%;
-      height: 2.08rem;
-      background: #ffffff;
-      box-shadow: 0rem 0rem 0rem 0rem #d0d0d0;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      .btn {
-        width: 40%;
-        height: 1.13rem;
-        background: #ffffff;
-        border: 1px solid #e2e2e2;
-        border-radius: 0.21rem;
-        font-size: 0.4rem;
-        font-family: PingFang SC;
-        font-weight: bold;
-        line-height: 1.13rem;
-        text-align: center;
-      }
-    }
-    .antdtree {
-      padding: 0.1rem;
-      width: 100%;
-      height: calc(100% - 2.1rem);
-      overflow-x: hidden;
-      overflow-y: auto;
-      .ant-tree-treenode-switcher-close {
-        .ant-tree-switcher {
-          line-height: 0.8rem;
-          .anticon {
-            font-size: 0.4rem !important;
-          }
-        }
-
-        .ant-tree-node-content-wrapper {
-          height: 0.8rem !important;
-          line-height: 0.8rem !important;
-          margin: 0 0.15rem;
-
-          .ant-tree-title {
-            font-size: 0.4rem !important;
-            line-height: 0.4rem !important;
-          }
-        }
-      }
-      .ant-tree-treenode-switcher-open {
-        .ant-tree-child-tree {
-          padding: 0 0 0 0.5rem;
-        }
-        .ant-tree-node-content-wrapper {
-          height: 0.8rem !important;
-          line-height: 0.8rem !important;
-          margin: 0 0.15rem;
-        }
-        .ant-tree-switcher_open {
-          line-height: 0.8rem !important;
-          .anticon {
-            font-size: 0.4rem !important;
-          }
-        }
-        .ant-tree-title {
-          font-size: 0.4rem;
-          line-height: 0.4rem;
-        }
-        .ant-tree-node-selected {
-          font-size: 0.4rem !important;
-          line-height: 0.8rem !important;
-        }
-      }
-    }
-  }
-  .listitem {
-    height: 1.53rem;
+    height: 1.34rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 0.3rem;
-    border: 0.01rem solid #f0f0f0;
-    background-color: #fff;
-    .itemimg {
-      width: 0.98rem;
-      height: 0.98rem;
-      background: #0089ff;
-      border-radius: 0.17rem;
-      color: #fff;
-      margin-right: 0.3rem;
-      overflow: hidden;
-      text-align: center;
-      font-size: 0.3rem;
-      line-height: 1rem;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .itemname {
-      flex: 1;
-
-      font-size: 0.42rem;
+    .cuone {
+      font-size: 0.4rem;
       font-family: PingFang SC;
-      font-weight: 500;
+      font-weight: bold;
       color: #000000;
     }
-    .deletei {
-      width: 1.35rem;
-      height: 0.58rem;
-      background: #ffffff;
-      border: 0.02rem solid #0089ff;
-      border-radius: 0.39rem;
-      text-align: center;
-      line-height: 0.58rem;
+    .cutwo {
+      flex: 1;
+      padding: 0 0.2rem;
+      display: flex;
+      .cutitrm {
+        width: 0.78rem;
+        height: 0.78rem;
+        background: #000;
+        border-radius: 50%;
+        text-align: center;
+        margin-right: -0.3rem;
+        line-height: 0.78rem;
 
-      color: #0089ff;
-
-      font-size: 0.37rem;
+        .cticon {
+          font-size: 0.5rem;
+        }
+      }
     }
+    .cuthree {
+      width: 1.44rem;
+      height: 0.67rem;
+      background: #0089ff;
+      border-radius: 0.33rem;
+      font-size: 0.3rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      color: #ffffff;
+      text-align: center;
+      line-height: 0.67rem;
+    }
+  }
+  .allapp {
+    .allapp_item {
+      margin-top: 0.2rem;
+      padding: 0.3rem;
+      background-color: #fff;
+      .item_top {
+        font-size: 0.4rem;
+        font-family: PingFang SC;
+        font-weight: bold;
+        color: #000000;
+      }
+      .item_con {
+        display: flex;
+        flex-wrap: wrap;
+        .item_com_son {
+          text-align: center;
+          padding: 0.2rem 0;
+          width: 20%;
+          border: 1px solid red;
+          .sonfont {
+            font-size: 0.3rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+#latelyFile {
+  height: 100vh;
+  background-color: #fff;
+
+  .listBody {
+    .listBody_item {
+      // width: 95%;
+      padding: 0.3rem 0.2rem;
+      margin: auto;
+      //   height: 2.72rem;
+      box-sizing: border-box;
+      background: #ffffff;
+      // border-radius: 0.22rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+        width: 0.85rem;
+        height: 0.88rem;
+        margin-right: 0.2rem;
+      }
+      .middle {
+        width: 70%;
+        flex: 1;
+        .middletop {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 0.35rem;
+          font-family: PingFang SC;
+          font-weight: 500;
+          color: #000000;
+        }
+        .middlebot {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 0.32rem;
+          font-family: PingFang SC;
+          font-weight: 500;
+          color: #999999;
+        }
+      }
+      .iconcc {
+        margin: 0 0.2rem;
+      }
+    }
+  }
+  .ddupload {
+    width: 1.58rem;
+    height: 1.58rem;
+    position: fixed;
+    right: 1rem;
+    bottom: 2rem;
+  }
+  .bottomBtn {
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    height: 2.08rem;
+    background: #ffffff;
+    box-shadow: 0rem 0rem 0rem 0rem #d0d0d0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .btn {
+      width: 40%;
+      height: 1.13rem;
+      background: #ffffff;
+      border: 1px solid #e2e2e2;
+      border-radius: 0.21rem;
+      font-size: 0.4rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      line-height: 1.13rem;
+      text-align: center;
+    }
+  }
+  .antdtree {
+    padding: 0.1rem;
+    width: 100%;
+    height: calc(100% - 2.1rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+    .ant-tree-treenode-switcher-close {
+      .ant-tree-switcher {
+        line-height: 0.8rem;
+        .anticon {
+          font-size: 0.4rem !important;
+        }
+      }
+
+      .ant-tree-node-content-wrapper {
+        height: 0.8rem !important;
+        line-height: 0.8rem !important;
+        margin: 0 0.15rem;
+
+        .ant-tree-title {
+          font-size: 0.4rem !important;
+          line-height: 0.4rem !important;
+        }
+      }
+    }
+    .ant-tree-treenode-switcher-open {
+      .ant-tree-child-tree {
+        padding: 0 0 0 0.5rem;
+      }
+      .ant-tree-node-content-wrapper {
+        height: 0.8rem !important;
+        line-height: 0.8rem !important;
+        margin: 0 0.15rem;
+      }
+      .ant-tree-switcher_open {
+        line-height: 0.8rem !important;
+        .anticon {
+          font-size: 0.4rem !important;
+        }
+      }
+      .ant-tree-title {
+        font-size: 0.4rem;
+        line-height: 0.4rem;
+      }
+      .ant-tree-node-selected {
+        font-size: 0.4rem !important;
+        line-height: 0.8rem !important;
+      }
+    }
+  }
+}
+.listitem {
+  height: 1.53rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.3rem;
+  border: 0.01rem solid #f0f0f0;
+  background-color: #fff;
+  .itemimg {
+    width: 0.98rem;
+    height: 0.98rem;
+    background: #0089ff;
+    border-radius: 0.17rem;
+    color: #fff;
+    margin-right: 0.3rem;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.3rem;
+    line-height: 1rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .itemname {
+    flex: 1;
+
+    font-size: 0.42rem;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: #000000;
+  }
+  .deletei {
+    width: 1.35rem;
+    height: 0.58rem;
+    background: #ffffff;
+    border: 0.02rem solid #0089ff;
+    border-radius: 0.39rem;
+    text-align: center;
+    line-height: 0.58rem;
+
+    color: #0089ff;
+
+    font-size: 0.37rem;
   }
 }

@@ -167,7 +167,11 @@ export default {
       }
     },
   },
-  mounted() {},
+  mounted() {
+    //   清空筛选数据
+    this.$store.commit('setparmarsData', {});
+    this.$store.commit('setsearchData', {});
+  },
   created() {
     // this.setTitle();
     if (!this.$store.state.userInfo.userimg) {

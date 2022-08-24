@@ -14,7 +14,7 @@
           }}
         </div>
         <div class="itemname">{{ item.name }}</div>
-        <div class="deletei" @click="czitem(item)">操做</div>
+        <div class="deletei" @click="czitem(item)">操作</div>
       </div>
       <van-empty v-if="Userlist.length < 1" description="暂无数据" />
     </div>
