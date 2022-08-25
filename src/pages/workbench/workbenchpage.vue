@@ -10,10 +10,7 @@
         :key="index"
         @click="goNest(item)"
       >
-        <img
-          src="https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/5d5dJY5esj1661223067570.png"
-          alt=""
-        />
+        <img :src="item.imgurl" alt="" />
         <div class="item_font">{{ item.name }}</div>
       </div>
     </div>
@@ -48,19 +45,78 @@ export default {
   data() {
     return {
       contentList: [
-        { name: '项目立项', imgurl: '' },
-        { name: '投标', imgurl: '' },
-        { name: '招标', imgurl: '' },
-        { name: '成本', imgurl: '' },
-        { name: '收入', imgurl: '' },
-        { name: '支出', imgurl: '' },
-        { name: '财务', imgurl: '' },
-        { name: '技术', imgurl: '' },
-
-        { name: '任务', imgurl: '' },
-        { name: '工程文档', imgurl: '' },
-        { name: '设置', imgurl: '' },
-        { name: '自定义', imgurl: '' },
+        {
+          name: '项目立项',
+          id: '1',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//Mih72hB2541661409251669.png',
+        },
+        {
+          name: '投标',
+          id: '2',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//cnb8waAZJa1661409251873.png',
+        },
+        {
+          name: '招标',
+          id: '3',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//Dxdxh2wNRA1661409252236.png',
+        },
+        {
+          name: '成本',
+          id: '4',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//Y257Mj3mnc1661409251174.png',
+        },
+        {
+          name: '收入',
+          id: '5',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//KEBJyiJffM1661409252400.png',
+        },
+        {
+          name: '支出',
+          id: '6',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//cfFJDdcKGd1661409251338.png',
+        },
+        {
+          name: '财务',
+          id: '7',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//Ez6jHbxYcB1661409251019.png',
+        },
+        {
+          name: '技术',
+          id: '8',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//EGwTRAt2Wy1661409252050.png',
+        },
+        {
+          name: '任务',
+          id: 'rw',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//yjBFRCjR8C1661409251507.png',
+        },
+        {
+          name: '工程文档',
+          id: 'file',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//aTBxCJiibQ1661409250851.png',
+        },
+        {
+          name: '设置',
+          id: '12',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//PHj2kStGjf1661409250466.png',
+        },
+        {
+          name: '自定义',
+          id: '11',
+          imgurl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//YceBGRwKjG1661409252562.png',
+        },
       ],
 
       filelist: [
@@ -79,9 +135,12 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
-    goNest() {
+    goNest(item) {
       this.$router.push({
         path: '/workbench/allapplication',
+        query: {
+          item,
+        },
       });
     },
     gopage(item) {

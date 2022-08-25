@@ -76,25 +76,25 @@ export default {
         {
           name: '订单中心',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//sbay2JR5Bm1661412727289.png',
         },
         {
           name: '新手指引',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//6xd6y5E4Yi1661412727664.png',
         },
         {
           path: '/setpage/feedback',
           name: '意见反馈',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//zwcTPRK3Rd1661412727822.png',
         },
         {
           path: '/setpage/message',
 
           name: '消息通知',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//pA7XFaSD8k1661412727985.png',
         },
       ],
       changmoreList: [
@@ -102,38 +102,38 @@ export default {
           path: '/setpage/rolemembers',
           name: '角色成员',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//4G2Bh3YrBa1661412728133.png',
         },
         {
           path: '/setpage/warehouseindex',
           name: '仓库管理',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//yE3QN27zjD1661412728285.png',
         },
         {
           path: '/setpage/intercUnitindex',
 
           name: '往来单位',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//MCQPCPpe5R1661412728432.png',
         },
         {
           path: '/setpage/basicLibraryindex',
           name: '物资基础库',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//eafRAK48RJ1661412728582.png',
         },
         {
           path: '/setpage/customindex',
 
           name: '自定义',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//2YzwyGETke1661412728767.png',
         },
         {
           name: '服务电话',
           imgurl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//xiwwDPYsPJ1660637093033.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//2YzwyGETke1661412728767.png',
         },
       ],
       roleView: 1,

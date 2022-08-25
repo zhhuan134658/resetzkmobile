@@ -73,7 +73,6 @@ export default {
   name: '',
   data() {
     return {
-      objectlength: 0,
       //   11111111111111111111111
     };
   },
@@ -177,9 +176,6 @@ export default {
   },
   //⽣命周期 - 创建完成（可以访问当前this实例）
   created() {
-    let asad = this.$store.state.parmarsData;
-
-    this.objectlength = Object.getOwnPropertyNames(asad).length - 1;
 
     // this.getTableList();
   },
