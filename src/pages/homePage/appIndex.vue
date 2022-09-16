@@ -98,6 +98,8 @@ export default {
   name: 'application',
   data() {
     return {
+      daichuli: '',
+      shoudao: '',
       filelist: [
         { name: '最近文件', path: '' },
         { name: '最近文件', path: '' },

@@ -41,7 +41,7 @@ export default {
         {
           fieldtype: 'DDSelectField11', //输入框类型
           fieldlable: '物资类型', //输入框lable
-          fieldrequired: false, //是否必填
+          fieldrequired: true, //是否必填
           filedmodel: 'goods_type', //输入框model
           valuekey: 'name',
 

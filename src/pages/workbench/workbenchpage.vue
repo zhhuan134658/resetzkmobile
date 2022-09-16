@@ -95,7 +95,7 @@ export default {
         },
         {
           name: '任务',
-          id: 'rw',
+          id: 'task',
           imgurl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//yjBFRCjR8C1661409251507.png',
         },

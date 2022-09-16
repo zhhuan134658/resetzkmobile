@@ -7,6 +7,8 @@ export default new Vuex.Store({
     searchData: {},
     parmarsData: {},
     togglevisible: false,
+    taskProject: '',
+    taskid: '',
     //!缓存 一般信息
     primaryColor: window.sessionStorage.getItem('primaryColor'),
     menuChildren: window.sessionStorage.getItem('menuChildren'),
@@ -28,6 +30,12 @@ export default new Vuex.Store({
   actions: {},
   getters: {},
   mutations: {
+    settaskid(state, taskid) {
+      state.taskid = taskid;
+    },
+    settaskProject(state, taskProject) {
+      state.taskProject = taskProject;
+    },
     setsearchData(state, searchData) {
       state.searchData = searchData;
     },

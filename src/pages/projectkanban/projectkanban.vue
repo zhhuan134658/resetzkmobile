@@ -39,6 +39,7 @@
           class="listBody_item"
           v-for="(item, index) in proList"
           :key="index"
+          @click="gokanban(item)"
         >
           <div class="itemtop">
             <div class="itemleft">
@@ -129,6 +130,17 @@ export default {
           onSuccess: function () {},
           onFail: function () {},
         });
+      });
+    },
+    gokanban() {
+      this.$router.push({
+        path: '/projectkanban/proKbench',
+        query: {
+          proitem: {
+            project_name: '投标项目测试',
+            id: 37,
+          },
+        },
       });
     },
     //

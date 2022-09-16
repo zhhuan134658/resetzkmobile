@@ -105,6 +105,7 @@ export default {
         qualifications: '',
         in_department: '',
         in_charge: '',
+        in_chargeid: '',
         ticket_type: [],
         enclosure: [],
         contacts_phone: '',
@@ -136,8 +137,9 @@ export default {
     addData() {
       this.axiosPost('/baselibrary/supplierinfoAdd', this.formData).then(
         res => {
+          this.$toast(res.data.msg);
+
           if (res.data.code == 1) {
-            this.$toast(res.data.msg);
             this.$router.go(-1);
           }
         },

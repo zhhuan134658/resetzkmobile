@@ -41,7 +41,7 @@
           :required="item.fieldrequired"
           readonly
           :label="item.fieldlable"
-          :placeholder="`请选择1${item.fieldlable}`"
+          :placeholder="`请选择${item.fieldlable}`"
           :rules="[{ required: item.fieldrequired }]"
           @click="seleckClick(item, item.filedmodel)"
         />

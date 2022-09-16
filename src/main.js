@@ -9,9 +9,16 @@ import './style/projectkanban.less';
 import './style/setpage.less';
 import './style/comForm.less';
 import './style/workbench.less';
+import './style/taskindex.less';
+import vueMiniPlayer from 'vue-mini-player';
+import 'vue-mini-player/lib/vue-mini-player.css';
+Vue.use(vueMiniPlayer);
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import 'ant-design-vue/dist/antd.css';
+
+import _ from 'lodash';
+Vue.use(_);
 
 import { Tree } from 'ant-design-vue';
 Vue.use(Tree);

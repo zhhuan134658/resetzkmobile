@@ -1,26 +1,6 @@
-<!-- 往來單位 -->
+<!-- 任务列表 -->
 <template>
-  <div id="warehouseindex">
-    <van-sticky>
-      <van-search
-        v-model="searchValue"
-        left-icon=""
-        placeholder="请输入搜索关键词"
-        @search="onSearch"
-        clearable
-      >
-        <template #right-icon>
-          <van-icon
-            v-if="objectlength > 0"
-            @click="vipsearch"
-            name="filter-o"
-            :badge="objectlength"
-          />
-          <van-icon v-else @click="vipsearch" name="filter-o" />
-        </template>
-      </van-search>
-    </van-sticky>
-
+  <div id="tasklist">
     <van-list
       v-model="loading"
       :finished="finished"
@@ -31,32 +11,22 @@
       error-text="请求失败，点击重新加载"
     >
       <div
+        class="list_item"
         v-for="(item, index) in proList"
         :key="index"
-        @click="goCreat('edit', item)"
-        class="comlist"
+        @click="editTask(item)"
       >
-        <div
-          v-for="(iitem, iindex) in titleList"
-          :key="iindex"
-          :class="iindex == 0 ? 'listtitle' : 'listcont'"
-        >
-          {{ `${iindex == 0 ? '' : iitem.label + ':'}` }}
-          {{ item[iitem.value] ? item[iitem.value] : '--' }}
+        <div class="list_item_left">
+          <div class="font_top">{{ item.task_name }}</div>
+          <div class="font_bot">
+            {{ item.send_name }}-{{ item.current_state }}
+          </div>
         </div>
-        <div class="deletebtn">
-          <van-button
-            @click.native.stop="deleteitem(item)"
-            round
-            plain
-            hairline
-            type="info"
-            >删除</van-button
-          >
-        </div>
+        <div class="list_item_right">删除</div>
       </div>
     </van-list>
     <div style="height: 3.1rem"></div>
+
     <div class="sureBtn">
       <van-button round type="info" @click="goCreat('creat', '')"
         >添 加</van-button
@@ -65,16 +35,14 @@
   </div>
 </template>
 <script>
-import baseMixins from '../mixins';
-
+import baseMixins from '../setpage/mixins';
+import * as dd from 'dingtalk-jsapi';
 export default {
   mixins: [baseMixins],
 
-  name: '',
+  name: 'tasklist',
   data() {
-    return {
-      //   11111111111111111111111
-    };
+    return {};
   },
   //监听属性类似于data概念
   computed: {},
@@ -82,44 +50,24 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
-    //筛选
-    vipsearch() {
+    editTask(item) {
+      this.$store.commit('settaskid', item.id);
       this.$router.push({
-        path: '/setpage/comSearch',
+        path: '/task/taskinfo',
         query: {
-          searchTyppe: 'supplier_info',
+          item,
         },
       });
     },
-    //   删除
-    deleteitem(item) {
-      this.$dialog
-        .confirm({
-          title: '警告提示',
-          message: '数据删除后不可恢复，请谨慎删除！',
-        })
-        .then(() => {
-          this.axiosPost('/baselibrary/supplierinfoDel', {
-            id: [item.id],
-          }).then(res => {
-            if (res.data.code == 1) {
-              this.onSearch();
-            }
-            this.$toast(res.data.msg);
-          });
-        })
-        .catch(() => {
-          // on cancel
-        });
-    },
-    //   新建
-    goCreat(type, item) {
+
+    goCreat() {
       this.$router.push({
-        path: '/setpage/intercUnitcreat',
-        query: { type, item, b_name: 'supplier_info' },
+        path: '/task/taskcreat',
+        query: {
+          pid: '0',
+        },
       });
     },
-
     getTableList() {
       console.log('++++++++++++++++++', this.$store.state.parmarsData);
       let searce = this.$store.state.parmarsData;
@@ -127,14 +75,14 @@ export default {
       let parmars = {
         number: 10,
         page: this.page,
-
-        b_name: 'supplier_info',
+        approval_status: '',
+        b_name: 'task',
       };
       Object.assign(parmars, searce);
       if (this.searchValue) {
         Object.assign(parmars, { biz_data: `like|${this.searchValue}` });
       }
-      this.axiosPost('/baselibrary/supplierinfoList', parmars).then(res => {
+      this.axiosPost('/baselibrary/taskList', parmars).then(res => {
         let resData = res.data.data;
         let mould_list = resData.mould_list;
         this.titleList = [];
@@ -175,9 +123,7 @@ export default {
     },
   },
   //⽣命周期 - 创建完成（可以访问当前this实例）
-  created() {
-    // this.getTableList();
-  },
+  created() {},
   //⽣命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
   //beforeCreate() {}, //⽣命周期 - 创建之前

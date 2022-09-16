@@ -48,7 +48,11 @@
       <div class="allapp_item" v-for="(item, index) in allmenu">
         <div class="item_top">{{ item.title }}</div>
         <div class="item_con">
-          <div class="item_com_son" v-for="item1 in item.children">
+          <div
+            class="item_com_son"
+            v-for="item1 in item.children"
+            @click="openDDsp(item, item1)"
+          >
             <van-icon
               @click="iconClick(item1)"
               v-if="editshow"
@@ -92,10 +96,11 @@ export default {
         'F2412C',
         'FF9F00',
         '0089FF',
+        '4E6EEE',
+        //++++++++++
         '722ED1',
         'F5222D',
         '13C2C2',
-        '4E6EEE',
         'FAAD14',
       ],
       editshow: false,
@@ -111,6 +116,40 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
+    openDDsp(item, item1) {
+      console.log('414', item, item1);
+      if (item.id == 'file' || item.id == 'task') {
+        this.$router.push({ path: item1.mobile_route });
+      } else {
+        this.axiosPost('/project/projectAdd', {
+          b_name: item1.biao_name,
+          title: item1.title,
+        }).then(res => {
+          if (res.data.code == 1) {
+            const _this = this;
+            let openurl =
+              'https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?dd_share=true&showmenu=false&dd_progress=false&corpid=' +
+              _this.$store.state.userInfo.corpid +
+              '&swfrom=qrshareh5&tempalteName=' +
+              item1.title +
+              '&processCode=' +
+              res.data.data +
+              '&back=native#/custom';
+            dd.ready(function () {
+              dd.biz.util.openLink({
+                url: openurl, //要打开链接的地址
+                onSuccess: function () {
+                  /**/
+                },
+                onFail: function () {},
+              });
+            });
+          } else {
+            this.$message.error(res.data.msg, 2);
+          }
+        });
+      }
+    },
     get() {
       this.$toast.loading({
         message: '加载中...',
@@ -128,6 +167,7 @@ export default {
               mobile_route: '/engineeringDocument/latelyFile',
               title: '最近文件',
               mobile_color: '15BC83',
+              mobile_icon: 'icon-zuijinwenjian',
             },
             {
               id: 'file',
@@ -135,6 +175,7 @@ export default {
               mobile_route: '/engineeringDocument/recycleBin',
               title: '回收站',
               mobile_color: 'FF7C00',
+              mobile_icon: 'icon-huishouzhan',
             },
             {
               id: 'file',
@@ -142,6 +183,7 @@ export default {
               mobile_route: '/engineeringDocument/myCollection',
               mobile_color: 'F2412C',
               title: '我的收藏',
+              mobile_icon: 'icon-wodeshoucang',
             },
             {
               id: 'file',
@@ -149,12 +191,15 @@ export default {
               mobile_route: '/engineeringDocument/DocumenFile',
               title: '文件',
               mobile_color: 'F5222D',
+              mobile_icon: 'icon-wenjian',
             },
             {
               id: 'file',
               imgsrc: 'icon-file_box_fill-01',
               mobile_route: '/engineeringDocument/standardAtlas',
               mobile_color: 'FF9F00',
+              mobile_icon: 'icon-kaipiaoshoukuanhuizong',
+
               title: '规范图集',
             },
             {
@@ -163,13 +208,32 @@ export default {
               mobile_route: '/engineeringDocument/privateDocuments',
               mobile_color: '0089FF',
               title: '私人文件',
+              mobile_icon: 'icon-shoupiaodengji',
             },
           ],
         },
       ];
+      let tasklist = [
+        {
+          id: 'task',
+          imgsrc: '',
+          title: '任务',
+          children: [
+            {
+              id: 'task',
+              imgsrc: 'icon-file_box_fill-01',
+              mobile_route: '/task/taskindex',
+              title: '任务',
+              mobile_color: '15BC83',
+              mobile_icon: 'icon-zuijinwenjian',
+            },
+          ],
+        },
+      ];
+
       this.axiosPost('/menu/menuMobile').then(res => {
         if (res.data.code == 1) {
-          let resData = res.data.data.concat(filedata);
+          let resData = res.data.data.concat(filedata).concat(tasklist);
           let queryitem = this.$route.query.item;
           resData.map((item, index) => {
             if (item.id == queryitem.id) {

@@ -113,3 +113,489 @@
     }
   }
 }
+#proKbench {
+  min-height: 100vh;
+  padding: 0 0 0.5rem;
+  background-color: #fff;
+
+  .div_content {
+    margin: auto;
+    background: #ffffff;
+
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    .van-cell {
+      padding: 10px 0px;
+    }
+    .div_one {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .one_left {
+        border-left: 0.5rem solid #0089ff;
+        padding-left: 0.3rem;
+      }
+      .one_right {
+        color: #0089ff;
+      }
+    }
+    .div_two {
+      .info_left {
+        height: 3rem;
+        line-height: 3rem;
+        font-size: 0.93rem;
+        font-family: PingFang SC;
+        font-weight: 500;
+        color: #666666;
+      }
+      .info_right {
+        font-size: 0.87rem;
+        font-family: PingFang SC;
+        font-weight: 500;
+        color: #000000;
+        line-height: 1.5rem;
+      }
+    }
+  }
+  .div_eacharts {
+    background: #ffffff;
+
+    .charts_c {
+      width: 80%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      .charts_c_item {
+        width: 50%;
+        text-align: center;
+        line-height: 0.8rem;
+        color: #0089ff;
+        border: 1px solid #0089ff;
+      }
+      .active {
+        background-color: #0089ff;
+        color: #fff;
+      }
+    }
+    .div_list {
+      max-height: 30rem;
+      padding: 0.5rem 0;
+      overflow: scroll;
+
+      .aaa {
+        text-align: center;
+      }
+      img {
+        width: 30%;
+      }
+      .list_item {
+        width: 95%;
+        margin: 0 auto 0.5rem;
+
+        background: #f7f7f7;
+        border-radius: 0.33rem;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        .item_top {
+          font-size: 0.4rem;
+          font-family: PingFang SC;
+          font-weight: bold;
+          color: #333333;
+          line-height: 0.4rem;
+          .listimg {
+            vertical-align: middle;
+            width: 0.4rem;
+          }
+          span {
+            vertical-align: middle;
+          }
+        }
+
+        .cont_one {
+          line-height: 1rem;
+          font-size: 0.4rem;
+          color: #666666;
+        }
+      }
+    }
+    .ezchers_t {
+      //   border: 1px solid red;
+
+      //   width: 100%;
+      padding: 0 0.2rem;
+      overflow-x: scroll;
+      text-align: center;
+      img {
+        width: 30%;
+      }
+      .ezchers_con {
+        display: flex;
+
+        .ezchers_con_left {
+          flex-basis: 3rem;
+          flex-shrink: 0;
+          width: 3rem;
+
+          background: #f3f3f5;
+          .ezchers_con_left_a {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border-bottom: 1px solid #e2e2e2;
+            border-right: 1px solid #e2e2e2;
+            padding-left: 0.3rem;
+            box-sizing: border-box;
+            line-height: 1rem;
+            text-align: left;
+            font-size: 0.3rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #333333;
+          }
+          .ezchers_con_left_b {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .outinfo {
+    background-color: #fff;
+    border-radius: 0.33rem;
+    width: 95%;
+    margin: 0.5rem auto;
+    overflow: scroll;
+    .outinfo_con {
+      width: 300%;
+      overflow: scroll;
+      padding: 0.5rem 0;
+    }
+  }
+  .vantform {
+    position: relative;
+    .btncli {
+      position: absolute;
+      top: 0.26rem;
+      right: 0.4rem;
+      font-size: 0.35rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      color: #0089ff;
+      z-index: 1;
+    }
+  }
+  .div_video {
+    height: 3.11rem;
+    width: 95%;
+    text-align: center;
+    margin: 0.5rem auto;
+  }
+  .comtitle {
+    display: flex;
+    align-items: center;
+    // flex-direction: column;
+    justify-content: center;
+    height: 1rem;
+    background-color: #fff;
+    .lingone {
+      border-radius: 0.03rem;
+      width: 0.18rem;
+      height: 0.18rem;
+      background: #0089ff;
+      opacity: 0.3;
+      margin: 0 0.1rem;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      transition: 1s clip-path;
+    }
+    .titlename {
+      font-size: 0.4rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      color: #000000;
+      margin: 0 0.1rem;
+    }
+    .lingtwo {
+      border-radius: 0.03rem;
+      width: 0.29rem;
+      height: 0.29rem;
+      background: #0089ff;
+      margin: 0 0.1rem;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      transition: 1s clip-path;
+    }
+  }
+  .div_unit {
+    background: #ffffff;
+    text-align: center;
+    img {
+      width: 5rem;
+      height: 4rem;
+    }
+    .unit_top {
+      display: flex;
+      align-items: center;
+      .unit_top_right {
+        width: 12%;
+      }
+    }
+    .unit_table {
+      height: 6.3rem;
+      overflow: scroll;
+      .unit_table_item {
+        height: 2.1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.2rem 0.3rem;
+        .unit_table_item_left {
+          .unit_table_item_left_one {
+            text-align: left;
+            font-size: 0.37rem;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #000000;
+          }
+          .unit_table_item_left_two {
+            text-align: left;
+
+            font-size: 0.3rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #999999;
+          }
+        }
+      }
+    }
+  }
+  .infocontent {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+    box-sizing: border-box;
+    .infocontent_item {
+      margin-bottom: 0.3rem;
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.2rem;
+      }
+      .item_right {
+        width: 50%;
+        .right_top {
+          font-size: 0.42rem;
+          font-family: PingFang SC;
+          font-weight: bold;
+          color: #0089ff;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .right_bot {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          font-size: 0.3rem;
+          font-family: PingFang SC;
+          font-weight: bold;
+          color: #666666;
+        }
+      }
+    }
+  }
+  .earchtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .earchtitle_item {
+      width: 2.85rem;
+      height: 0.8rem;
+      text-align: center;
+      border-radius: 0rem 0rem 0rem 0rem;
+      font-size: 0.32rem;
+      font-family: PingFang SC;
+      font-weight: bold;
+      line-height: 0.8rem;
+      border: 1px solid #0089ff;
+    }
+    .acyive {
+      color: #fff;
+      background: #0089ff;
+    }
+  }
+  .div_big {
+    width: 95%;
+    background: #ffffff;
+    border-radius: 0.33rem;
+    margin: auto;
+    padding: 0 0.5rem 0.5rem;
+    box-sizing: border-box;
+    max-height: 26.4rem;
+    .div_one {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 3rem;
+
+      .one_left {
+        border-left: 0.5rem solid #0089ff;
+        padding-left: 0.3rem;
+      }
+      .one_right {
+        color: #0089ff;
+      }
+    }
+    .bit_content {
+      max-height: 23rem;
+      overflow-y: scroll;
+    }
+    .big_item {
+      width: 95%;
+      margin: 0.5rem auto;
+      height: 3.83rem;
+      background: #f7f7f7;
+      border-radius: 0.33rem;
+      padding: 0 0.5rem;
+      .big_item_top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50%;
+        .top_left {
+          img {
+            width: 0.9rem;
+            height: 0.9rem;
+            vertical-align: middle;
+          }
+          span {
+            font-size: 0.93rem;
+            font-family: PingFang SC;
+            font-weight: 500;
+            color: #333333;
+            vertical-align: middle;
+          }
+        }
+      }
+      .big_item_bottom {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 2rem;
+        font-size: 0.8rem;
+        font-family: PingFang SC;
+        font-weight: 500;
+        color: #666666;
+      }
+    }
+  }
+  .vant-table {
+    .table {
+      .th {
+        height: 1rem;
+        line-height: 1rem;
+        width: 3rem;
+        text-align: center;
+        border-top-left-radius: 0.1rem;
+        border-top-right-radius: 0.1rem;
+      }
+      .list-tr {
+        height: 1rem;
+        line-height: 1rem;
+      }
+      //   .list-tr:nth-child(2n) {
+      //     background-color: #33333b;
+      //   }
+    }
+  }
+  .earchtable {
+    background-color: #fff;
+    padding: 0 0.2rem;
+    margin: auto;
+    display: flex;
+
+    .earchtable_one {
+      .commtop {
+        height: 0.94rem;
+        font-size: 0.3rem;
+        font-family: PingFang SC;
+        font-weight: 500;
+        color: #333333;
+        line-height: 0.94rem;
+        width: 2rem;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .comback {
+        background: #f8f8f8;
+      }
+    }
+    .earchtable_two {
+      flex: 1;
+      display: flex;
+      overflow-x: auto;
+    }
+  }
+  .botlist {
+  }
+  .topTitle {
+    height: 3.68rem;
+    background: #ffffff;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .vantabs {
+    // position: relative;
+    .van-tabs {
+      .van-tabs__wrap {
+        width: 90%;
+      }
+    }
+    .vanticon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 10%;
+      background-color: #fff;
+      height: 1.17333rem;
+      text-align: center;
+      line-height: 1.4rem;
+
+      .van-dropdown-menu {
+        .van-dropdown-menu__bar {
+          .van-dropdown-menu__item {
+            .van-ellipsis {
+              display: none;
+            }
+            .van-dropdown-menu__title::after {
+              right: 0.08rem;
+              opacity: 1;
+              width: 0.3rem;
+              height: 0.3rem;
+              margin-top: -0.25rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.tabitem {
+  color: #646566;
+  font-size: 0.37333rem;
+
+  text-align: center;
+  padding: 0.4rem;
+}
+.activecolor {
+  background-color: #0089ff;
+  color: #fff;
+}

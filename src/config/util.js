@@ -2,6 +2,31 @@ import axios from './https.js';
 import * as dd from 'dingtalk-jsapi';
 import store from '@/store';
 export default {
+  // 日期计算天数  isNewDay true 带当天  false 不带
+  timestampToTime(timestamp, endTime, isNewDay = false) {
+    var faultDate = timestamp;
+    var completeTime = endTime;
+    var stime = Date.parse(new Date(faultDate));
+    var etime = Date.parse(new Date(completeTime));
+    // 两个时间戳相差的毫秒数
+    var usedTime = etime - stime;
+    // 计算相差的天数
+    var days = Math.floor(usedTime / (24 * 3600 * 1000));
+    // 计算天数后剩余的毫秒数
+    var leave1 = usedTime % (24 * 3600 * 1000);
+    // 计算出小时数
+    var hours = Math.floor(leave1 / (3600 * 1000));
+    // 计算小时数后剩余的毫秒数
+    var leave2 = leave1 % (3600 * 1000);
+    // 计算相差分钟数
+    var minutes = Math.floor(leave2 / (60 * 1000));
+    var time = days + '天' + hours + '时' + minutes + '分';
+    // 是否包含当天
+    if (isNewDay) {
+      days += 1;
+    }
+    return days;
+  },
   // 文件权限获取name
   getRoleNmae(val) {
     let name;

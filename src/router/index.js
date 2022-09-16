@@ -48,6 +48,13 @@ const routes = [
             name: 'projectkanban',
             component: () => import('../pages/projectkanban/projectkanban.vue'),
           },
+
+          {
+            path: '/projectkanban/proKbench',
+            name: 'proKbench',
+            component: () =>
+              import('../pages/projectkanban/proKbench/index.vue'),
+          },
         ],
       },
       //工作台
@@ -67,6 +74,30 @@ const routes = [
             path: '/workbench/allapplication',
             name: 'allapplication',
             component: () => import('../pages/workbench/allapplication.vue'),
+          },
+          //任务
+          {
+            path: '/task/taskindex',
+            name: 'taskindex',
+            component: () => import('../pages/task/taskindex.vue'),
+          },
+          //任务列表
+          {
+            path: '/task/tasklist',
+            name: 'tasklist',
+            component: () => import('../pages/task/tasklist.vue'),
+          },
+          //任务新建
+          {
+            path: '/task/taskcreat',
+            name: 'taskcreat',
+            component: () => import('../pages/task/taskcreat.vue'),
+          },
+          //任务详情
+          {
+            path: '/task/taskinfo',
+            name: 'taskinfo',
+            component: () => import('../pages/task/taskinfo.vue'),
           },
           //工程文档-最近文件
           {
