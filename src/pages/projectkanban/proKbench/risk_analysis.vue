@@ -67,7 +67,9 @@ export default {
         {
           title: '总金额(元)',
           value: 'accident_money',
-          img: 'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//YARffGZB5b1654649906094.png',
+
+          imgUrl:
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//6ijJRpxr5r1663404451479.png',
         },
       ],
       titleData: {},

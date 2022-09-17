@@ -61,26 +61,34 @@ export default {
       vancellList: [
         {
           name: '全部任务',
+          approval_status: '',
         },
         {
+          approval_status: '8',
           name: '我的任务',
         },
         {
+          approval_status: '9',
           name: '我参与的',
         },
         {
+          approval_status: '10',
           name: '我创建的',
         },
         {
+          approval_status: '11',
           name: '抄送我的',
         },
         {
+          approval_status: '12',
           name: '逾期任务',
         },
         {
+          approval_status: '13',
           name: '即将逾期任务',
         },
         {
+          approval_status: '14',
           name: '已完成任务',
         },
       ],
@@ -94,6 +102,8 @@ export default {
   methods: {
     //   跳转
     goNext(item) {
+      console.log('4867', item);
+      this.$store.commit('settasktype', item.approval_status);
       this.$router.push({ path: '/task/tasklist' });
     },
     onSearch() {},

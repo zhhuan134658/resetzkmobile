@@ -33,61 +33,61 @@ export default {
           title: '劳务合同金额',
           value: 'ht_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//QQjan8xTz31654650015155.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//FDenAfQbFY1663404450770.png',
         },
         {
           title: '合同份数',
           value: 'ht_number',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/ekzMKs83Zy1615168260242.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//cZZhX2MGyc1663404451173.png',
         },
         {
           title: '关联企业（家)',
           value: 'qy_number',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//WBSbGRBNMd1654649959911.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//wcwDkNTRTK1663404451332.png',
         },
         {
           title: '累计入场工',
           value: 'worker_number',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//pem7iadhHd1654649982399.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//6ijJRpxr5r1663404451479.png',
         },
         {
           title: '结算金额',
           value: 'sett_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//AHJseCJA3e1654649924458.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//MABJTjZEKj1663404451777.png',
         },
         {
           title: '已支付金额',
           value: 'paid_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//YYc5Rdad5S1654650000501.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//KHMm8epnQj1663404451626.png',
         },
         {
           title: '待支付金额',
           value: 'no_paid_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//YARffGZB5b1654649906094.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//fN5S6fKNcT1663404451933.png',
         },
         {
           title: '零星用工金额',
           value: 'spo_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//ryH2zaFdZf1654650524340.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//RJFS86pJan1663404452083.png',
         },
         {
           title: '自有工人金额',
           value: 'workers_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//nC7f5XK8d21654650480253.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//8irp77RZeT1663404452287.png',
         },
         {
           title: '总支付金额',
           value: 'zong_paid_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/ekzMKs83Zy1615168260242.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//8irp77RZeT1663404452287.png',
         },
       ],
       titleData: {
@@ -136,28 +136,25 @@ export default {
       tableList3: [],
       listList3: [
         {
-          listname: '签约单位:',
+          listname: '项目名称:',
           val: 'project_name',
         },
         {
-          listname: '变更名称:',
-          val: 'name',
+          listname: '签证名称:',
+          val: 'visa_name',
         },
         {
-          listname: '合同名称:',
-          val: 'source',
+          listname: '所属劳务合同:',
+          val: 'contract_name',
         },
         {
-          listname: '编号:',
-          val: 'change_bigmoney',
+          listname: '签证金额:',
+          val: 'visa_money',
         },
+
         {
-          listname: '变更金额:',
-          val: 'change_money',
-        },
-        {
-          listname: '变更签订人:',
-          val: 'change_signer',
+          listname: '签证负责人:',
+          val: 'visasigned_by',
         },
       ],
     };
@@ -183,10 +180,14 @@ export default {
       );
     },
     getqualityProblem3() {
-      let newapidata = Object.assign(this.apiData, { page: 1, number: 100000 });
+      let newapidata = {
+        b_name: 'laborcontract_visa',
+        number: 777777,
+        page: 1,
+      };
 
-      this.axiosPost('/finance/Laborchangevisalist', newapidata).then(res => {
-        this.tableList3 = res.data.content.list;
+      this.axiosPost('/project/projectList', newapidata).then(res => {
+        this.tableList3 = res.data.data.data;
       });
     },
   },

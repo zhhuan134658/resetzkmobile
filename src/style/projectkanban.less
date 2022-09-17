@@ -42,6 +42,73 @@
     }
   }
   .listBody {
+    .listBody_item1 {
+      width: 95%;
+      margin: 0.4rem auto;
+      padding: 0.3rem;
+      //   padding-bottom: 0.2rem;
+      //   height: 2.72rem;
+      background: #ffffff;
+      border-radius: 0.22rem;
+      .listBody_item1_one {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.37rem;
+        font-family: PingFang SC;
+        font-weight: bold;
+        color: #000000;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .listBody_item1_two {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.33rem;
+        font-family: PingFang SC;
+        font-weight: 500;
+        color: #999999;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 0.6rem;
+      }
+      .listBody_item1_bot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 0.8rem;
+        .bot_left {
+          .spanong {
+            margin-right: 0.1rem;
+            display: inline-block;
+            width: 0.58rem;
+            text-align: center;
+            height: 0.58rem;
+            border-radius: 50%;
+            background-color: #409eff;
+            color: #fff;
+            line-height: 0.58rem;
+          }
+        }
+        .bot_rigth {
+          font-size: 0.3rem;
+          font-family: PingFang SC;
+          font-weight: 500;
+          .gcolor {
+            color: #17c298;
+          }
+          .ocolor {
+            color: #e8a54c;
+          }
+          .rcolor {
+            color: #ff3434;
+          }
+        }
+      }
+    }
     .listBody_item {
       width: 95%;
       margin: 0.4rem auto;
@@ -203,6 +270,9 @@
           font-weight: bold;
           color: #333333;
           line-height: 0.4rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
           .listimg {
             vertical-align: middle;
             width: 0.4rem;
@@ -216,6 +286,9 @@
           line-height: 1rem;
           font-size: 0.4rem;
           color: #666666;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
     }
@@ -283,6 +356,7 @@
       font-weight: bold;
       color: #0089ff;
       z-index: 1;
+      border-bottom: 1px solid #ccc;
     }
   }
   .div_video {
@@ -342,6 +416,10 @@
     .unit_table {
       height: 6.3rem;
       overflow: scroll;
+      img {
+        width: 4rem;
+        height: 3rem;
+      }
       .unit_table_item {
         height: 2.1rem;
         display: flex;
@@ -553,7 +631,7 @@
     }
   }
   .vantabs {
-    // position: relative;
+    position: relative;
     .van-tabs {
       .van-tabs__wrap {
         width: 90%;
@@ -578,8 +656,8 @@
             .van-dropdown-menu__title::after {
               right: 0.08rem;
               opacity: 1;
-              width: 0.3rem;
-              height: 0.3rem;
+              width: 0.2rem;
+              height: 0.2rem;
               margin-top: -0.25rem;
             }
           }

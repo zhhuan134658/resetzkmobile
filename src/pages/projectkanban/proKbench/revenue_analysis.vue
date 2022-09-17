@@ -81,25 +81,29 @@
           <div class="item_top">{{ item.project_name }}</div>
 
           <div class="cont_one">
-            签证变更名称：<span style="color: #0089ff">{{ item.name }}</span>
+            签证变更名称<span style="color: #0089ff">{{
+              item.ivisa_name
+            }}</span>
           </div>
           <div class="cont_one">
-            签证编号：<span style="color: #0089ff">{{ item.number }}</span>
+            所属合同<span style="color: #0089ff">{{ item.contract_name }}</span>
           </div>
           <div class="cont_one">
-            合同金额<span style="color: #0089ff">{{ item.extend_four }}</span>
+            合同金额<span style="color: #0089ff">{{
+              item.contract_amount
+            }}</span>
           </div>
           <div class="cont_one">
-            签证金额<span style="color: #0089ff">{{ item.change_money }}</span>
+            签证金额<span style="color: #0089ff">{{ item.ivisa_money }}</span>
           </div>
         </div>
 
         <div v-else class="aaa">
           <img
-            src="http://oazhukuai.zzdingyun.com/app/dist/static/img/bianji1.f4d09d63.png"
+            src="https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//EBC6ydZ7Tj1663407965807.png"
             alt=""
           />
-          <div>暂时还没有数据哦~快去添加</div>
+          <!-- <div>暂时还没有数据哦~快去添加</div> -->
         </div>
       </div>
     </div>
@@ -129,62 +133,62 @@ export default {
           title: '合同金额(元)',
           value: 'contract_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//FDenAfQbFY1663404450770.png',
         },
         {
           title: '履约保证金(元)',
           value: 'income_bond_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//cZZhX2MGyc1663404451173.png',
         },
         {
           title: '质保金(元)',
           value: 'income_warranty_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//wcwDkNTRTK1663404451332.png',
         },
         {
           title: '签约人',
           value: 'contract_signer',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//6ijJRpxr5r1663404451479.png',
         },
         {
           title: '签证金额(元)',
           value: 'income_visa_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//KHMm8epnQj1663404451626.png',
         },
 
         {
           title: '签证占比',
           value: 'visa_bi',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//MABJTjZEKj1663404451777.png',
         },
         {
           title: '结算产值(元)',
           value: 'sett_output',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//fN5S6fKNcT1663404451933.png',
         },
         {
           title: '累计回款(元)',
           value: 'contract_collection_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//RJFS86pJan1663404452083.png',
         },
         {
           title: '甲方欠款(元)',
           value: 'jia_arrears',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//8irp77RZeT1663404452287.png',
         },
         {
           title: '回款比率',
           value: 'payment_bi',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//8eRrnEixDF1663404452476.png',
         },
       ],
       titleData: {
@@ -210,19 +214,20 @@ export default {
       ],
       isEdit: true,
       contentInfo: {
-        extend_first: '',
-        extend_two: '',
-        extend_three: '',
-        extend_four: '',
+        id: '',
+        main_clause: '',
+        sett_clause: '',
+        pay_clause: '',
+        breach_clause: '',
         jia_unit: '',
-        yi_unit: '',
         plan_period: '',
+        yi_unit: '',
       },
       contentList: [
-        { name: '合同条款：', content: 'extend_first' },
-        { name: '结算条款：', content: 'extend_two' },
-        { name: '付款条款：', content: 'extend_three' },
-        { name: '违约条款：', content: 'extend_four' },
+        { name: '合同条款：', content: 'main_clause' },
+        { name: '结算条款：', content: 'sett_clause' },
+        { name: '付款条款：', content: 'pay_clause' },
+        { name: '违约条款：', content: 'breach_clause' },
         // { name: "签约主体：", content: "construction_unit" },
         { name: '甲方：', content: 'jia_unit' },
         { name: '乙方：', content: 'yi_unit' },
@@ -279,6 +284,7 @@ export default {
     getTopInfo() {
       this.axiosPost('/bulletin/incomeInfo', this.apiData).then(res => {
         this.titleData = res.data.data;
+        this.contentInfo = res.data.data;
       });
     },
     //   编辑项目情况
@@ -351,14 +357,14 @@ export default {
       });
     },
     getqualityProblem2() {
-      this.axiosPost('/project/incomeContractChangeVisaList', {
+      this.axiosPost('/project/projectList', {
         //   project_id: this.project_id,
         //   project_name: this.project_name,
         page: 1,
         number: 999999,
-        shenpi: 7,
+        b_name: 'ivisa_contract',
       }).then(res => {
-        this.tableList2 = res.data.data;
+        this.tableList2 = res.data.data.data;
         console.log('sdasdasds', this.tableList2);
       });
     },

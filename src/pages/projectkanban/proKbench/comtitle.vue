@@ -10,7 +10,7 @@
         <img :src="item.imgUrl" alt="" />
 
         <div class="item_right">
-          <div class="right_top">{{ titleData[item.value] }}</div>
+          <div class="right_top">{{ titleData[item.value] || 0 }}</div>
           <div class="right_bot">{{ item.title }}</div>
         </div>
       </div>

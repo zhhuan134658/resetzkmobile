@@ -4,26 +4,12 @@
     <van-sticky>
       <div class="kbtop">
         <van-search
-          v-model="searchNmae"
-          right-icon="filter-o"
+          v-model="seaechname"
+          right-icon=""
           left-icon=""
           placeholder="请输入搜索关键词"
           @search="onSearch"
         />
-        <div class="forediv">
-          <div
-            class="forediv_item"
-            v-for="(item, index) in topXMlist"
-            :key="index"
-            @click="searchtop(item)"
-          >
-            <img :src="item.imgurl" alt="" />
-            <div class="forediv_item_div">
-              <div class="itemtop">{{ item.name }}</div>
-              <div class="itemnum">{{ tjData[item.num] }}</div>
-            </div>
-          </div>
-        </div>
       </div>
     </van-sticky>
     <div class="listBody">
@@ -36,39 +22,33 @@
         :error.sync="error"
         error-text="请求失败，点击重新加载"
       >
-        <div
-          class="listBody_item"
-          v-for="(item, index) in proList"
-          :key="index"
-          @click="gokanban(item)"
-        >
-          <div class="itemtop">
-            <div class="itemleft">
+        <div class="listBody_item1" v-for="(item, index) in proList">
+          <div class="listBody_item1_one">{{ item.name }}</div>
+          <div class="listBody_item1_two">{{ item.field_one }}</div>
+          <div class="listBody_item1_two">{{ item.field_two }}</div>
+          <div class="listBody_item1_two">{{ item.field_three }}</div>
+          <div class="listBody_item1_bot">
+            <div class="bot_left">
+              <span class="spanong">{{ item.send_name[0] }}</span>
+              <span>由{{ item.send_name }}提交</span>
+            </div>
+            <div
+              class="bot_rigth"
+              :style="
+                item.status == '1'
+                  ? 'color: #E8A54C;'
+                  : item.status == '2'
+                  ? 'color: #17c298'
+                  : 'color: #FF3434'
+              "
+            >
               {{
-                item.project_name.length > 8
-                  ? item.project_name.substring(0, 8) + '...'
-                  : item.project_name
+                item.status == '1'
+                  ? '审批中'
+                  : item.status == '2'
+                  ? '已同意'
+                  : '已拒绝'
               }}
-              <van-tag plain size="medium" color="#38CC9C" type="primary">{{
-                item.project_status
-              }}</van-tag>
-            </div>
-            <div class="itemright">已同意</div>
-            <!-- <div class="itemright">{{item.status}}</div> -->
-          </div>
-
-          <div class="itemcon">
-            <div class="conone">
-              <div class="cononetop">{{ item.jindu || '--' }}</div>
-              <div class="cononebot">项目进度</div>
-            </div>
-            <div class="conone">
-              <div class="cononetopqq">{{ item.project_person || '--' }}</div>
-              <div class="cononebot">项目负责人</div>
-            </div>
-            <div class="conone">
-              <div class="cononetopqq">{{ item.day_number || '--' }}</div>
-              <div class="cononebot">总工期/天</div>
             </div>
           </div>
         </div>
@@ -81,8 +61,7 @@ export default {
   name: '',
   data() {
     return {
-      searchtopdata: {},
-      searchNmae: '',
+      seaechname: '',
       loading: false, // 是否处在加载状态
       finished: false, // 是否已加载完成
       error: false, // 是否加载失败
@@ -95,44 +74,30 @@ export default {
       //   11111111111111111111111111111
       topXMlist: [
         {
-          id: '1',
           name: '项目总数',
-          num: 'project_num',
+          num: '10',
           imgurl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//wFTPEfsfEf1660637912938.png',
         },
         {
-          id: '2',
           name: '在建项目',
-          num: 'project_under_num',
+          num: '10',
           imgurl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//Tp6kdEBhnF1660637913103.png',
         },
         {
-          id: '3',
           name: '本年新增',
-          num: 'project_add_num',
+          num: '10',
           imgurl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//rP5TrKFhBF1660637912775.png',
         },
         {
-          id: '4',
           name: '本年竣工',
-          num: 'project_completed_num',
+          num: '10',
           imgurl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//srCkj84dsP1660637912414.png',
         },
       ],
-      tjData: {
-        project_completed_num: 0,
-        project_completed_money: 0,
-        project_add_num: 0,
-        project_add_money: 0,
-        project_under_num: 0,
-        project_under_money: 0,
-        project_num: 0,
-        project_money: 0,
-      },
     };
   },
   //监听属性类似于data概念
@@ -151,41 +116,12 @@ export default {
       });
     },
     gokanban(item) {
-      this.$router.push({
-        path: '/projectkanban/proKbench',
-        query: {
-          proitem: item,
-        },
-      });
-    },
-    searchtop(item) {
-      let date1 = new Date();
-      let year1 = date1.getFullYear();
-      let firstMonth = year1 + '-' + '01' + '-' + '01';
-      let lastDay = year1 + '-' + '12' + '-' + '31';
-
-      let apidata = `>=|${new Date(firstMonth).getTime()}|<=|${new Date(
-        lastDay,
-      ).getTime()}`;
-      if (item.id == 1) {
-        this.searchtopdata = {};
-      } else if (item.id == 2) {
-        this.searchtopdata = { project_status: 'like|在建' };
-      } else if (item.id == 3) {
-        this.searchtopdata = { update_time: apidata };
-      } else if (item.id == 4) {
-        this.searchtopdata = {
-          update_time: apidata,
-          project_status: 'like|竣工',
-        };
-      }
-      this.$nextTick(() => {
-        this.finished = false; // 清空列表数据
-        this.loading = true; // 将 loading 设置为 true，表示处于加载状态
-        this.page = 1; // 分页数赋值为1
-        this.proList = []; // 清空数组
-        this.onLoad(); // 重新加载数据
-      });
+      //   this.$router.push({
+      //     path: '/projectkanban/proKbench',
+      //     query: {
+      //       proitem: item,
+      //     },
+      //   });
     },
     //
     // 获取列表数据方法
@@ -215,16 +151,12 @@ export default {
       this.onLoad(); // 重新加载数据
     },
     getTableList() {
-      let newapidata = Object.assign(
-        {
-          page: this.page,
-          number: 10000,
-          biz_data: this.searchNmae,
-        },
-        this.searchtopdata,
-      );
-      this.axiosPost('/project/bulletinProjectList', newapidata).then(res => {
-        this.tjData = res.data.data.jiben;
+      this.axiosPost('/baselibrary/approvalList', {
+        name: this.seaechname,
+        number: 10,
+        page: this.page,
+        type: this.$route.query.typeid,
+      }).then(res => {
         let resData = res.data.data;
         // this.proList = resData.data;
         this.proList = [...this.proList, ...resData.data];

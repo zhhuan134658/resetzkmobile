@@ -41,7 +41,12 @@
     <!-- 安全问题关联排名 -->
     <div>
       <comfont :fontdata="'安全问题关联排名'"></comfont>
-      <comlist :botmlist="botmlist" :listList="listList"></comlist>
+      <comlist
+        :botmlist="botmlist"
+        :listList="listList"
+        :topList="topList2"
+        @getqualityUnitProblem="getqualityUnitProblem"
+      ></comlist>
     </div>
   </div>
 </template>
@@ -138,31 +143,31 @@ export default {
           title: '安全检查条数',
           value: 'quality_count',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//PbsJRtnHiY1663404241260.png',
         },
         {
           title: '安全整改通知条数',
           value: 'rectify_notice_count',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//rccNNr3Mer1663404241896.png',
         },
         {
           title: '安全整改回复条数',
           value: 'rectify_reply_count',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//Edek7iZMHk1663404242074.png',
         },
         {
           title: '安全事故条数',
           value: 'quality_accident_count',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//bjF2FDS2st1663404242243.png',
         },
         {
           title: '事故金额(元)',
           value: 'quality_accident_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//SGXhJk7W6R1663404242448.png',
         },
       ],
       titleData: {

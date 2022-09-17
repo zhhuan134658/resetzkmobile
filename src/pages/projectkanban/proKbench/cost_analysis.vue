@@ -59,19 +59,19 @@ export default {
           title: '间接成本预算',
           value: 'jian_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//ZKyeADWaFw1663404023040.png',
         },
         {
           title: '直接费实际支出',
           value: 'zhi_sj_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//Edek7iZMHk1663404242074.png',
         },
         {
           title: '间接费实际支出',
           value: 'jian_sj_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/XMnin8iWxy1662540525449.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//SGXhJk7W6R1663404242448.png',
         },
       ],
       titleData: {},
@@ -155,14 +155,14 @@ export default {
       this.axiosPost('/bulletin/costIndirect', this.apiData).then(res => {
         let resDATA = res.data.data;
 
-        this.tablelist = resDATA;
+        this.tablelist1 = resDATA;
 
         let earchList = [['标题', '间接成本预算', '间接实际支出']];
 
         if (resDATA.length > 0) {
           resDATA.forEach(item => {
             // console.log('77777', Object.keys(item));
-            this.tableclumes = Object.keys(item);
+            this.tableclumes1 = Object.keys(item);
 
             let newdata = [
               item.type,

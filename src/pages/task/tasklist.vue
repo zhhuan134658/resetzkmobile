@@ -75,7 +75,7 @@ export default {
       let parmars = {
         number: 10,
         page: this.page,
-        approval_status: '',
+        approval_status: this.$store.state.tasktype,
         b_name: 'task',
       };
       Object.assign(parmars, searce);

@@ -33,7 +33,11 @@
       </div>
     </div>
     <div v-else>
-      <div>暂时还没有数据哦~快去添加</div>
+      <!-- <div>暂时还没有数据哦~快去添加</div> -->
+      <img
+        src="https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//EBC6ydZ7Tj1663407965807.png"
+        alt=""
+      />
     </div>
   </div>
 </template>

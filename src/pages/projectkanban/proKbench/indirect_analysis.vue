@@ -98,19 +98,19 @@ export default {
           title: '支出金额',
           value: 'zhi_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//WBSbGRBNMd1654649959911.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//cZZhX2MGyc1663404451173.png',
         },
         {
           title: '预算金额',
           value: 'yu_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/user-dir/ekzMKs83Zy1615168260242.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//wcwDkNTRTK1663404451332.png',
         },
         {
           title: '预算对比',
           value: 'bi_lv',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//QQjan8xTz31654650015155.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//KHMm8epnQj1663404451626.png',
         },
       ],
       titleData: {

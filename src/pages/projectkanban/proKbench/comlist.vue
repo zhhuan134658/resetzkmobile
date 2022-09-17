@@ -41,8 +41,12 @@
           </div> -->
         </div>
       </div>
-      <div class="unit_table" style="line-height: 4rem" v-else>
-        暂时还没有数据哦~快去添加
+      <div class="unit_table" style="line-height: 6rem" v-else>
+        <!-- 暂时还没有数据哦~快去添加 -->
+        <img
+          src="https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//EBC6ydZ7Tj1663407965807.png"
+          alt=""
+        />
       </div>
     </div>
   </div>
@@ -54,6 +58,7 @@ export default {
   props: {
     botmlist: Array,
     listList: Array,
+    topList: Array,
   },
   data() {
     return {

@@ -2,6 +2,8 @@
 <template>
   <div id="">
     <div class="titltione">
+      <comfont :fontdata="'经营分析'"></comfont>
+
       <div class="titltitwo">
         <div class="van-hairline--top"></div>
         <van-row>
@@ -133,9 +135,7 @@
       <div class="van-hairline--top"></div>
     </div>
 
-    <!-- <comfont :fontdata="'经营分析'"></comfont> -->
-
-    <commtitle :titleAllList="titleAllList" :titleData="titleData"></commtitle>
+    <!-- <commtitle :titleAllList="titleAllList" :titleData="titleData"></commtitle> -->
     <!-- 成本问题分析 -->
     <comfont :fontdata="'现金流分析'"></comfont>
     <commoneacharts
@@ -151,7 +151,7 @@
 
     <commoneacharts
       :key="pierceTableid1"
-      :eachid="'dweqasd'"
+      :eachid="'ddsaweqfdasd'"
       :eachartData="eachartData1"
       :tableList="tableList1"
       :tableName="tableName1"
@@ -281,8 +281,8 @@ export default {
       activeindex2: 0,
       activeindex: 0,
       activeindex1: 0,
-      casw: 'dasd',
-      casw1: 'dweqasd',
+      casw: 'dweqasd',
+      casw1: 'dweqasdrter',
       pierceTableid: +new Date(),
       pierceTableid1: +new Date(),
       pierceTableid2: +new Date(),

@@ -146,7 +146,7 @@ export default {
       activeindex2: 0,
       activeindex3: 0,
       activeindex4: 0,
-      casw: 'dasd',
+      casw: 'd111asd',
       casw1: 'dweqasd',
       pierceTableid: +new Date(),
       pierceTableid1: +new Date(),

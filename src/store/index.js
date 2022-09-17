@@ -9,6 +9,7 @@ export default new Vuex.Store({
     togglevisible: false,
     taskProject: '',
     taskid: '',
+    tasktype: '',
     //!缓存 一般信息
     primaryColor: window.sessionStorage.getItem('primaryColor'),
     menuChildren: window.sessionStorage.getItem('menuChildren'),
@@ -30,6 +31,9 @@ export default new Vuex.Store({
   actions: {},
   getters: {},
   mutations: {
+    settasktype(state, tasktype) {
+      state.tasktype = tasktype;
+    },
     settaskid(state, taskid) {
       state.taskid = taskid;
     },

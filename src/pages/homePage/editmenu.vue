@@ -2,21 +2,31 @@
 <template>
   <div id="allapplication">
     <!-- 常用 -->
-    <!-- <van-sticky>
+    <van-sticky>
       <div class="comuse">
         <div class="cuone">常用应用</div>
         <div class="cutwo">
-          <div class="cutitrm" v-for="item in commonlyList">
-            <i class="iconfont iconcha cticon" style="color: red"></i>
+          <div class="cutitrm" v-for="item1 in commonlyList">
+            <i
+              :class="
+                item1.mobile_icon
+                  ? `font_family ${item1.mobile_icon}`
+                  : 'font_family icon-zanwuxinxi'
+              "
+              style="font-size: 0.8rem"
+              :style="`color:#${
+                item1.mobile_color ? item1.mobile_color : '15BC83'
+              }`"
+            ></i>
           </div>
         </div>
         <div class="cuthree" @click="editClick">
           {{ editshow ? '保存' : '编辑' }}
         </div>
       </div>
-    </van-sticky> -->
+    </van-sticky>
     <!-- 常用应用 -->
-    <!-- <div class="allapp" v-if="editshow">
+    <div class="allapp" v-if="editshow">
       <div class="allapp_item">
         <div class="item_con">
           <div class="item_com_son" v-for="item1 in commonlyList">
@@ -27,9 +37,15 @@
               size="16"
             />
             <i
-              class="iconfont"
-              :class="item1.mobile_icon"
-              style="color: blue"
+              :class="
+                item1.mobile_icon
+                  ? `font_family ${item1.mobile_icon}`
+                  : 'font_family icon-zanwuxinxi'
+              "
+              style="font-size: 0.8rem"
+              :style="`color:#${
+                item1.mobile_color ? item1.mobile_color : '15BC83'
+              }`"
             ></i>
 
             <div class="sonfont">
@@ -42,22 +58,18 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
     <!-- 全部 -->
     <div class="allapp">
       <div class="allapp_item" v-for="(item, index) in allmenu">
-        <div class="item_top">{{ item.title }}</div>
+        <div class="item_top">{{ item.name }}</div>
         <div class="item_con">
-          <div
-            class="item_com_son"
-            v-for="item1 in item.children"
-            @click="openDDsp(item, item1)"
-          >
+          <div class="item_com_son" v-for="item1 in item.itemlist">
             <van-icon
               @click="iconClick(item1)"
               v-if="editshow"
-              :name="item1.commonly != 0 ? 'clear' : 'add'"
-              :color="item1.commonly != 0 ? '#F2412C' : '#0089FF'"
+              :name="item1.isselected != 0 ? 'clear' : 'add'"
+              :color="item1.isselected != 0 ? '#F2412C' : '#0089FF'"
               size="16"
             />
             <i
@@ -73,9 +85,9 @@
             ></i>
             <div class="sonfont">
               {{
-                item1.title.length > 6
-                  ? item1.title.substring(0, 6) + '...'
-                  : item1.title
+                item1.name.length > 6
+                  ? item1.name.substring(0, 6) + '...'
+                  : item1.name
               }}
             </div>
           </div>
@@ -116,40 +128,6 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
-    openDDsp(item, item1) {
-      console.log('414', item, item1);
-      if (item.id == 'file' || item.id == 'task') {
-        this.$router.push({ path: item1.mobile_route });
-      } else {
-        this.axiosPost('/project/projectAdd', {
-          b_name: item1.biao_name,
-          title: item1.title,
-        }).then(res => {
-          if (res.data.code == 1) {
-            const _this = this;
-            let openurl =
-              'https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?dd_share=true&showmenu=false&dd_progress=false&corpid=' +
-              _this.$store.state.userInfo.corpid +
-              '&swfrom=qrshareh5&tempalteName=' +
-              item1.title +
-              '&processCode=' +
-              res.data.data +
-              '&back=native#/custom';
-            dd.ready(function () {
-              dd.biz.util.openLink({
-                url: openurl, //要打开链接的地址
-                onSuccess: function () {
-                  /**/
-                },
-                onFail: function () {},
-              });
-            });
-          } else {
-            this.$toast(res.data.msg);
-          }
-        });
-      }
-    },
     get() {
       this.$toast.loading({
         message: '加载中...',
@@ -231,19 +209,20 @@ export default {
         },
       ];
 
-      this.axiosPost('/menu/menuMobile').then(res => {
+      this.axiosPost('/baselibrary/commonlyTypealllist').then(res => {
         if (res.data.code == 1) {
           let resData = res.data.data.concat(filedata).concat(tasklist);
-          let queryitem = this.$route.query.item;
-          resData.map((item, index) => {
-            if (item.id == queryitem.id) {
-              console.log('1221', item);
-              //   resData.unshift(resData.splice(index, 1)[0]);
+          this.allmenu = resData;
+          //   let queryitem = this.$route.query.item;
+          //   resData.map((item, index) => {
+          //     if (item.id == queryitem.id) {
+          //       console.log('1221', item);
+          //       //   resData.unshift(resData.splice(index, 1)[0]);
 
-              this.allmenu = [item];
-            }
-          });
-          //   this.allmenu = resData;
+          //       this.allmenu = [item];
+          //     }
+          //   });
+          //   //   this.allmenu = resData;
 
           console.log('resData', resData);
           this.$toast.clear();
@@ -255,6 +234,7 @@ export default {
       this.axiosPost('/baselibrary/commonlyTypelist').then(res => {
         if (res.data.code == 1) {
           let resData = res.data.data;
+
           this.commonlyList = resData;
         }
       });
@@ -265,7 +245,7 @@ export default {
     },
     // 图标事件
     iconClick(item) {
-      if (item.commonly == 0) {
+      if (item.isselected == 0) {
         // 添加常用
 
         this.axiosPost('/baselibrary/commonlyTypeadd', {
@@ -274,6 +254,8 @@ export default {
           if (res.data.code == 1) {
             this.get();
             this.getcommonlyList();
+          } else {
+            this.$toast(res.data.msg);
           }
         });
       } else {
@@ -284,6 +266,8 @@ export default {
           if (res.data.code == 1) {
             this.get();
             this.getcommonlyList();
+          } else {
+            this.$toast(res.data.msg);
           }
         });
       }

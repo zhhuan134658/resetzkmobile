@@ -62,7 +62,7 @@
       ></van-form>
     </div>
     <!-- 施工单位 -->
-
+    <comfont :fontdata="'施工单位'"></comfont>
     <div class="div_unit">
       <div class="unit_top">
         <div class="unit_top_left">
@@ -85,12 +85,28 @@
       </div>
       <div v-if="unitList && unitList.length == 0" class="unit_table">
         <img
-          src="http://oazhukuai.zzdingyun.com/app/dist/static/img/bianji1.f4d09d63.png"
+          src="https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//EBC6ydZ7Tj1663407965807.png"
           alt=""
         />
-        <div style="color: #909399">暂时还没有数据哦~快去添加</div>
+        <!-- <div style="color: #909399">暂时还没有数据哦~快去添加</div> -->
       </div>
       <div v-else class="unit_table">
+        <div
+          class="unit_table_item"
+          v-for="(item, index) in unitList"
+          :key="index"
+        >
+          <div class="unit_table_item_left">
+            <div class="unit_table_item_left_one">{{ item.project_name }}</div>
+            <div class="unit_table_item_left_two">职务：{{ item.zhi_wu }}</div>
+            <div class="unit_table_item_left_two">电话：{{ item.mobile }}</div>
+          </div>
+          <div class="unit_table_item_right" @click="moreInfo(item)">
+            <van-icon name="ellipsis" size="20" />
+          </div>
+        </div>
+      </div>
+      <!-- <div v-else class="unit_table">
         <div class="unit unitb">
           <div class="name name1">姓名</div>
           <div class="name name2">职务</div>
@@ -103,10 +119,12 @@
           <div class="name name3">{{ item.mobile }}</div>
           <div class="name name4" @click="moreInfo(item)">更多</div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- 项目大事记 -->
-    <div class="div_big">
+    <!-- <comfont :fontdata="'项目大事记'"></comfont> -->
+
+    <!-- <div class="div_big">
       <div class="div_one">
         <div class="one_left">项目大事记</div>
         <div class="one_right">
@@ -131,11 +149,16 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- 添加 -->
     <van-popup v-model="unitshow" position="bottom" :style="{ height: '63%' }">
-      <van-form validate-first @failed="onFailed" ref="addunitForm">
+      <van-form
+        validate-first
+        @failed="onFailed"
+        ref="addunitForm"
+        id="comForm"
+      >
         <van-field
           @click="opensheet"
           label="单位类型"
@@ -167,17 +190,23 @@
           placeholder="请输入"
           :rules="[{ message: '请输入正确内容' }]"
         />
-        <div style="margin: 16px" class="suitbtn">
-          <van-button type="info" @click="onSubmit" native-type="submit"
+        <div style="margin: 16px; text-align: center" class="suitbtn">
+          <van-button
+            type="info"
+            style="width: 40%"
+            @click="onSubmit"
+            native-type="submit"
             >提交</van-button
           >
-          <van-button type="warning" @click="onEdit">取消</van-button>
+          <van-button type="warning" style="width: 40%" @click="onEdit"
+            >取消</van-button
+          >
         </div>
       </van-form>
     </van-popup>
     <!-- 添加 -->
     <van-popup v-model="bigshow" position="bottom">
-      <van-form validate-first @failed="onFailed">
+      <van-form validate-first @failed="onFailed" id="comForm">
         <van-field
           label="标题"
           v-model="addbigForm.title"
@@ -204,7 +233,7 @@
         />
 
         <!-- 附件 -->
-        <div class="imgupload">
+        <!-- <div class="imgupload">
           <div class="imgfont">
             <div>附件</div>
             <div
@@ -240,12 +269,18 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div style="margin: 16px" class="suitbtn">
-          <van-button type="info" @click="onbigSubmit" native-type="submit"
+          <van-button
+            type="info"
+            @click="onbigSubmit"
+            style="width: 40%"
+            native-type="submit"
             >提交</van-button
           >
-          <van-button type="warning" @click="bigshow = false">取消</van-button>
+          <van-button type="warning" style="width: 40%" @click="bigshow = false"
+            >取消</van-button
+          >
         </div>
       </van-form>
     </van-popup>
@@ -399,49 +434,49 @@ export default {
           title: '中标时间',
           value: 'bid_riqi',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//CpMR376Pr51654649861721.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//HS3JRCZwX51663404022016.png',
         },
         {
           title: '工程规模',
           value: 'quantities',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//YARffGZB5b1654649906094.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//SQCmPeJmxx1663404022549.png',
         },
         {
           title: '合同金额/元',
           value: 'contract_money',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//AHJseCJA3e1654649924458.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//aPsawQhrrJ1663404022704.png',
         },
         {
           title: '计划开工日期',
           value: 'plan_start_riqi',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//YZE2nB8tSF1654649943255.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//taktMa2nEe1663404022867.png',
         },
         {
           title: '项目类型',
           value: 'type',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//WBSbGRBNMd1654649959911.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//ZKyeADWaFw1663404023040.png',
         },
         {
           title: '项目状态',
           value: 'project_status',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//pem7iadhHd1654649982399.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//PRKfFXhwpG1663404023221.png',
         },
         {
           title: '计划竣工日期',
           value: 'plan_end_riqi',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//YYc5Rdad5S1654650000501.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//taktMa2nEe1663404022867.png',
         },
         {
           title: '项目地址',
           value: 'address',
           imgUrl:
-            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//QQjan8xTz31654650015155.png',
+            'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//2bh8rYaCCA1663404023416.png',
         },
       ],
       titleData: {
@@ -737,13 +772,13 @@ export default {
     handleFullscreen() {},
     //获取大事件列表
     getbigInfo() {
-      this.axiosPost('/bulletin/projectBriefIntroduction2', {
+      this.axiosPost('/bulletin/projectMemorabilia', {
         project_id: this.project_id,
         project_name: this.project_name,
         page: 1,
         number: 999999,
       }).then(res => {
-        this.bigIinfo = res.data.data;
+        this.bigIinfo = res.data.data.data;
       });
     },
     //   获取顶部信息
@@ -756,7 +791,7 @@ export default {
     },
     //   项目简介-联系人
     getunitInfo(val) {
-      this.axiosPost('/bulletin/projectBriefIntroduction1', {
+      this.axiosPost('/bulletin/projectContacts', {
         project_id: this.project_id,
         project_name: this.project_name,
         unit_type: val, //单位类型 1施工单位 2建设单位 3勘察单位 4监理单位 5总承包单位 6其他
@@ -778,4 +813,49 @@ export default {
 };
 </script>
 <style lang="less">
+.unit_table {
+  width: 95%;
+  margin: 1px auto;
+  height: 5rem;
+  overflow-x: scroll;
+  text-align: center;
+  img {
+    width: 50%;
+  }
+  .unit {
+    font-size: 0.3rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    border: 1px solid #e2e2e2;
+    height: 0.5rem;
+    .name {
+      //   line-height: 7rem;
+      text-align: center;
+      color: #666666;
+      height: 100%;
+    }
+    .name1 {
+      width: 20%;
+      border-right: 1px solid #e2e2e2;
+    }
+    .name2 {
+      width: 35%;
+      border-right: 1px solid #e2e2e2;
+    }
+    .name3 {
+      width: 35%;
+      border-right: 1px solid #e2e2e2;
+    }
+    .name4 {
+      width: 10%;
+      color: #0089ff;
+    }
+  }
+  .unitb {
+    background: #f3f3f5;
+  }
+}
 </style>

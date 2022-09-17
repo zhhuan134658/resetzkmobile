@@ -125,10 +125,12 @@
       padding: 0 0.2rem;
       display: flex;
       .cutitrm {
-        width: 0.78rem;
-        height: 0.78rem;
-
+        overflow: hidden;
+        width: 0.7rem;
+        height: 0.7rem;
+        box-shadow: -0.05rem 1px 1px;
         background: #f8f8f8;
+        border: 2px solid #fff;
         border-radius: 50%;
         text-align: center;
         margin-right: -0.3rem;
@@ -162,6 +164,9 @@
         font-family: PingFang SC;
         font-weight: bold;
         color: #000000;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .item_con {
         display: flex;

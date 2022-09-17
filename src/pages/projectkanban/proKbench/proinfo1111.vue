@@ -99,10 +99,10 @@
       </div>
       <div v-if="unitList && unitList.length == 0" class="unit_table">
         <img
-          src="http://oazhukuai.zzdingyun.com/app/dist/static/img/bianji1.f4d09d63.png"
+          src="https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//EBC6ydZ7Tj1663407965807.png"
           alt=""
         />
-        <div style="color: #909399">暂时还没有数据哦~快去添加</div>
+        <!-- <div style="color: #909399">暂时还没有数据哦~快去添加</div> -->
       </div>
       <div class="unit_table">
         <div

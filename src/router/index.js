@@ -32,6 +32,16 @@ const routes = [
             name: 'homePageindex',
             component: () => import('../pages/homePage/appIndex.vue'),
           },
+          {
+            path: '/homePage/spList', //首页-我的工作
+            name: 'spList',
+            component: () => import('../pages/homePage/spList.vue'),
+          },
+          {
+            path: '/homePage/editmenu', //首页-我的工作
+            name: 'editmenu',
+            component: () => import('../pages/homePage/editmenu.vue'),
+          },
         ],
       },
       //项目看板

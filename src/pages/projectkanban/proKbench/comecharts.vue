@@ -30,15 +30,15 @@
           v-for="(item, index) in tablelist"
           :key="index"
         >
-          <div class="commtop comback">{{ item[tableclumes[0]] || '-' }}</div>
-          <div class="commtop">{{ item[tableclumes[1]] || '-' }}</div>
+          <div class="commtop comback">{{ item[tableclumes[0]] }}</div>
+          <div class="commtop">{{ item[tableclumes[1]] }}</div>
 
           <div class="commtop comback">
-            {{ item[tableclumes[2]] || '-' }}
+            {{ item[tableclumes[2]] }}
           </div>
 
           <div class="commtop">
-            {{ item[tableclumes[3]] || '-' }}
+            {{ item[tableclumes[3]] }}
           </div>
         </div>
       </div>

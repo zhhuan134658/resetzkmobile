@@ -34,7 +34,7 @@
       </van-tabs>
       <div class="vanticon">
         <!-- <van-icon name="setting-o" color="#000" size="25" /> -->
-        <van-dropdown-menu>
+        <van-dropdown-menu active-color="#1989fa">
           <van-dropdown-item v-model="activeName" :options="tabsList" />
         </van-dropdown-menu>
       </div>
