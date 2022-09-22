@@ -5,7 +5,43 @@
     <commtitle :titleAllList="titleAllList" :titleData="titleData"></commtitle>
     <!-- 详细情况 -->
     <comfont :fontdata="'详细信息'"></comfont>
-    <div class="div_content">
+    <div class="vantform">
+      <div class="btncli" @click="fontClick">
+        {{ isEdit ? '编辑' : '保存' }}
+      </div>
+      <van-form
+        id="comForm"
+        :show-error-message="false"
+        :scroll-to-error="true"
+      >
+        <div v-for="(item, index) in contentList" :key="index">
+          <van-field
+            :readonly="isEdit"
+            class="textarea"
+            v-if="item.fieldtype == 'TextareaField'"
+            v-model="contentInfo[item.content]"
+            rows="2"
+            autosize
+            :label="item.name"
+            type="textarea"
+            maxlength="200"
+            :placeholder="`请输入${item.name}`"
+            show-word-limit
+          />
+
+          <van-field
+            :readonly="isEdit"
+            v-else
+            v-model="contentInfo[item.content]"
+            :name="item.name"
+            maxlength="50"
+            :label="item.name"
+            :placeholder="`请输入${item.name}`"
+            :rules="[{ required: item.fieldrequired }]"
+          /></div
+      ></van-form>
+    </div>
+    <!-- <div class="div_content">
       <div class="div_one">
         <div></div>
         <div class="one_right">
@@ -37,11 +73,8 @@
         </div>
       </div>
 
-      <!-- <div class="div_one topfor">
-        <div class="info_left">建设单位：</div>
-        <div class="info_right">河南筑快科技有限公司</div>
-      </div> -->
-    </div>
+
+    </div> -->
 
     <!-- 安全问题分析 -->
     <comfont :fontdata="'安全问题分析'"></comfont>
@@ -280,6 +313,14 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
+    fontClick() {
+      this.isEdit = !this.isEdit;
+      if (this.isEdit) {
+        this.save('2');
+      } else {
+        this.editinfo;
+      }
+    },
     //   获取顶部信息
     getTopInfo() {
       this.axiosPost('/bulletin/incomeInfo', this.apiData).then(res => {
@@ -303,7 +344,7 @@ export default {
     saveInfo(val) {
       val.id = val.project_situation_id;
       this.axiosPost('/bulletin/incomeClauseAdd', val).then(res => {
-        Toast(res.data.msg);
+        this.$toast(res.data.msg);
       });
     },
 

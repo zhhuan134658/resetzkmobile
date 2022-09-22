@@ -1,82 +1,77 @@
 <!-- 全部应用 -->
 <template>
   <div id="allapplication">
-    <!-- 常用 -->
-    <!-- <van-sticky>
-      <div class="comuse">
-        <div class="cuone">常用应用</div>
-        <div class="cutwo">
-          <div class="cutitrm" v-for="item in commonlyList">
-            <i class="iconfont iconcha cticon" style="color: red"></i>
-          </div>
-        </div>
-        <div class="cuthree" @click="editClick">
-          {{ editshow ? '保存' : '编辑' }}
-        </div>
-      </div>
-    </van-sticky> -->
-    <!-- 常用应用 -->
-    <!-- <div class="allapp" v-if="editshow">
-      <div class="allapp_item">
-        <div class="item_con">
-          <div class="item_com_son" v-for="item1 in commonlyList">
-            <van-icon
-              name="clear"
-              @click="iconClick(item1)"
-              color="#F2412C"
-              size="16"
-            />
-            <i
-              class="iconfont"
-              :class="item1.mobile_icon"
-              style="color: blue"
-            ></i>
+    <!-- 全部 -->
+    <div class="allapp">
+      <div v-for="(item, index) in allmenu.children">
+        <div class="allapp_item" v-if="item.interface != '/'">
+          <div class="item_top">{{ item.title }}</div>
+          <div class="item_con">
+            <div
+              class="item_com_son"
+              v-for="item1 in item.children"
+              @click="openDDsp(item1)"
+            >
+              <van-icon
+                @click="iconClick(item1)"
+                v-if="editshow"
+                :name="item1.commonly != 0 ? 'clear' : 'add'"
+                :color="item1.commonly != 0 ? '#F2412C' : '#0089FF'"
+                size="16"
+              />
+              <i
+                :class="
+                  item1.mobile_icon
+                    ? `font_family ${item1.mobile_icon}`
+                    : 'font_family icon-zanwuxinxi'
+                "
+                style="font-size: 0.8rem"
+                :style="`color:#${
+                  item1.mobile_color ? item1.mobile_color : '15BC83'
+                }`"
+              ></i>
 
-            <div class="sonfont">
-              {{
-                item1.title.length > 6
-                  ? item1.title.substring(0, 6) + '...'
-                  : item1.title
-              }}
+              <div class="sonfont">
+                {{
+                  item1.title.length > 8
+                    ? item1.title.substring(0, 8) + '...'
+                    : item1.title
+                }}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div> -->
-    <!-- 全部 -->
-    <div class="allapp">
-      <div class="allapp_item" v-for="(item, index) in allmenu">
-        <div class="item_top">{{ item.title }}</div>
-        <div class="item_con">
-          <div
-            class="item_com_son"
-            v-for="item1 in item.children"
-            @click="openDDsp(item, item1)"
-          >
-            <van-icon
-              @click="iconClick(item1)"
-              v-if="editshow"
-              :name="item1.commonly != 0 ? 'clear' : 'add'"
-              :color="item1.commonly != 0 ? '#F2412C' : '#0089FF'"
-              size="16"
-            />
-            <i
-              :class="
-                item1.mobile_icon
-                  ? `font_family ${item1.mobile_icon}`
-                  : 'font_family icon-zanwuxinxi'
-              "
-              style="font-size: 0.8rem"
-              :style="`color:#${
-                item1.mobile_color ? item1.mobile_color : '15BC83'
-              }`"
-            ></i>
-            <div class="sonfont">
-              {{
-                item1.title.length > 6
-                  ? item1.title.substring(0, 6) + '...'
-                  : item1.title
-              }}
+
+        <div class="allapp_item" v-else>
+          <div class="item_top">{{ item.title }}</div>
+          <div class="item_con">
+            <div class="item_com_son" @click="openDDsp(item)">
+              <van-icon
+                @click="iconClick(item)"
+                v-if="editshow"
+                :name="item.commonly != 0 ? 'clear' : 'add'"
+                :color="item.commonly != 0 ? '#F2412C' : '#0089FF'"
+                size="16"
+              />
+              <i
+                :class="
+                  item.mobile_icon
+                    ? `font_family ${item.mobile_icon}`
+                    : 'font_family icon-zanwuxinxi'
+                "
+                style="font-size: 0.8rem"
+                :style="`color:#${
+                  item.mobile_color ? item.mobile_color : '15BC83'
+                }`"
+              ></i>
+
+              <div class="sonfont">
+                {{
+                  item.title.length > 8
+                    ? item.title.substring(0, 8) + '...'
+                    : item.title
+                }}
+              </div>
             </div>
           </div>
         </div>
@@ -106,7 +101,7 @@ export default {
       editshow: false,
       // 头部常用列表
       editList: [],
-      allmenu: [],
+      allmenu: {},
       commonlyList: [],
     };
   },
@@ -117,13 +112,13 @@ export default {
   //⽅法集合
   methods: {
     openDDsp(item, item1) {
-      console.log('414', item, item1);
+      console.log('414', item, item);
       if (item.id == 'file' || item.id == 'task') {
-        this.$router.push({ path: item1.mobile_route });
+        this.$router.push({ path: item.mobile_route });
       } else {
         this.axiosPost('/project/projectAdd', {
-          b_name: item1.biao_name,
-          title: item1.title,
+          b_name: item.biao_name,
+          title: item.title,
         }).then(res => {
           if (res.data.code == 1) {
             const _this = this;
@@ -131,7 +126,7 @@ export default {
               'https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?dd_share=true&showmenu=false&dd_progress=false&corpid=' +
               _this.$store.state.userInfo.corpid +
               '&swfrom=qrshareh5&tempalteName=' +
-              item1.title +
+              item.title +
               '&processCode=' +
               res.data.data +
               '&back=native#/custom';
@@ -240,10 +235,9 @@ export default {
               console.log('1221', item);
               //   resData.unshift(resData.splice(index, 1)[0]);
 
-              this.allmenu = [item];
+              this.allmenu = item;
             }
           });
-          //   this.allmenu = resData;
 
           console.log('resData', resData);
           this.$toast.clear();
@@ -251,14 +245,16 @@ export default {
       });
     },
     // 获取常用应用列表
-    getcommonlyList() {
-      this.axiosPost('/baselibrary/commonlyTypelist').then(res => {
-        if (res.data.code == 1) {
-          let resData = res.data.data;
-          this.commonlyList = resData;
-        }
-      });
-    },
+    // getcommonlyList() {
+    //   this.axiosPost('/baselibrary/commonlyTypelist', {
+    //     userid: this.$store.state.userInfo.userid,
+    //   }).then(res => {
+    //     if (res.data.code == 1) {
+    //       let resData = res.data.data;
+    //       this.commonlyList = resData;
+    //     }
+    //   });
+    // },
     // 编辑
     editClick() {
       this.editshow = !this.editshow;
@@ -292,7 +288,7 @@ export default {
   //⽣命周期 - 创建完成（可以访问当前this实例）
   created() {
     this.get();
-    this.getcommonlyList();
+    // this.getcommonlyList();
   },
   //⽣命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},

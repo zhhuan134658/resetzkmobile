@@ -164,9 +164,9 @@ export default {
       let firstMonth = year1 + '-' + '01' + '-' + '01';
       let lastDay = year1 + '-' + '12' + '-' + '31';
 
-      let apidata = `>=|${new Date(firstMonth).getTime()}|<=|${new Date(
-        lastDay,
-      ).getTime()}`;
+      let apidata = `>=|${new Date(firstMonth).getTime() / 1000}|<=|${
+        new Date(lastDay).getTime() / 1000
+      }`;
       if (item.id == 1) {
         this.searchtopdata = {};
       } else if (item.id == 2) {
@@ -219,7 +219,7 @@ export default {
         {
           page: this.page,
           number: 10000,
-          biz_data: this.searchNmae,
+          biz_data: `like|${this.searchNmae}`,
         },
         this.searchtopdata,
       );

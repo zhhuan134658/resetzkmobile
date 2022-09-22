@@ -209,7 +209,9 @@ export default {
         },
       ];
 
-      this.axiosPost('/baselibrary/commonlyTypealllist').then(res => {
+      this.axiosPost('/baselibrary/commonlyTypealllist', {
+        userid: this.$store.state.userInfo.userid,
+      }).then(res => {
         if (res.data.code == 1) {
           let resData = res.data.data.concat(filedata).concat(tasklist);
           this.allmenu = resData;
@@ -231,7 +233,9 @@ export default {
     },
     // 获取常用应用列表
     getcommonlyList() {
-      this.axiosPost('/baselibrary/commonlyTypelist').then(res => {
+      this.axiosPost('/baselibrary/commonlyTypelist', {
+        userid: this.$store.state.userInfo.userid,
+      }).then(res => {
         if (res.data.code == 1) {
           let resData = res.data.data;
 

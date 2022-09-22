@@ -277,7 +277,9 @@ export default {
       this.$router.push({ path: '/task/tasklist' });
     },
     getcommonlyTypelist() {
-      this.axiosPost('/baselibrary/commonlyTypelist').then(res => {
+      this.axiosPost('/baselibrary/commonlyTypelist', {
+        userid: this.$store.state.userInfo.userid,
+      }).then(res => {
         this.commonlyTypelist = res.data.data;
       });
     },
