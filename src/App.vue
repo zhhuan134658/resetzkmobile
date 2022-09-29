@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <router-view class="app-bottom" />
+    <!-- <keep-alive include="allapplication">
+      <router-view class="app-bottom" />
+    </keep-alive> -->
+    <keep-alive include="allapplication">
+      <router-view class="app-bottom" />
+    </keep-alive>
     <div class="claldiv" v-if="tabbot"></div>
     <van-tabbar
       v-if="tabbot"

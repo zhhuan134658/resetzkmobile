@@ -760,7 +760,7 @@ export default {
 
       let prams;
 
-      const { file_id } = JSON.parse(this.$route.query.itemdata);
+      const { file_id } = this.$route.query.itemdata;
 
       prams = Object.assign({
         file_name: this.searchValue,

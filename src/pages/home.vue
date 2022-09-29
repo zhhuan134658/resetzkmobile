@@ -47,7 +47,9 @@ export default {
                     that.$store.commit('setUserimg', userData.avatar);
                     that.$store.commit('setcompany', userData.company);
 
-                    that.$nextTick(() => {});
+                    that.$nextTick(() => {
+                      that.$router.replace({ path: '/homePage/homePageindex' });
+                    });
 
                     // let user = userData.userid;
                     // that.Image = userData.avatar;
@@ -89,6 +91,7 @@ export default {
             that.$store.commit('setUsername', userData.name);
             that.$store.commit('setUserimg', userData.avatar);
             that.$store.commit('setcompany', userData.company);
+            that.$router.replace({ path: '/homePage/homePageindex' });
           }
         });
     },

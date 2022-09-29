@@ -41,6 +41,7 @@ export default {
   //⽅法集合
   methods: {
     goNest(item) {
+      this.$store.commit('setworlitem', item);
       this.$router.push({
         path: '/workbench/allapplication',
         query: {

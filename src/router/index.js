@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    redirect: '/homePage/homePageindex',
+    // redirect: '/homePage/homePageindex',
     component: () => import('../pages/home.vue'),
     children: [
       //首页

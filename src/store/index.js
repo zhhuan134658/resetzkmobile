@@ -4,6 +4,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    worlitem: {},
     searchData: {},
     parmarsData: {},
     togglevisible: false,
@@ -31,6 +32,9 @@ export default new Vuex.Store({
   actions: {},
   getters: {},
   mutations: {
+    setworlitem(state, worlitem) {
+      state.worlitem = worlitem;
+    },
     settasktype(state, tasktype) {
       state.tasktype = tasktype;
     },

@@ -10,19 +10,14 @@
       :error.sync="error"
       error-text="请求失败，点击重新加载"
     >
-      <div
-        class="list_item"
-        v-for="(item, index) in proList"
-        :key="index"
-        @click="editTask(item)"
-      >
-        <div class="list_item_left">
+      <div class="list_item" v-for="(item, index) in proList" :key="index">
+        <div class="list_item_left" @click="editTask(item)">
           <div class="font_top">{{ item.task_name }}</div>
           <div class="font_bot">
             {{ item.send_name }}-{{ item.current_state }}
           </div>
         </div>
-        <div class="list_item_right">删除</div>
+        <div class="list_item_right" @click="deletask(item)">删除</div>
       </div>
     </van-list>
     <div style="height: 3.1rem"></div>
@@ -35,6 +30,7 @@
   </div>
 </template>
 <script>
+import { Dialog } from 'vant';
 import baseMixins from '../setpage/mixins';
 import * as dd from 'dingtalk-jsapi';
 export default {
@@ -50,6 +46,26 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
+    deletask(item) {
+      Dialog.confirm({
+        title: '删除任务',
+      })
+        .then(() => {
+          this.axiosPost('/baselibrary/taskDel', {
+            id: [item.id],
+          }).then(res => {
+            this.finished = false; // 清空列表数据
+            this.loading = true; // 将 loading 设置为 true，表示处于加载状态
+            this.page = 1; // 分页数赋值为1
+            this.proList = []; // 清空数组
+            this.onLoad(); // 重新加载数据
+            this.$toast(res.data.msg);
+          });
+        })
+        .catch(() => {
+          // on cancel
+        });
+    },
     editTask(item) {
       this.$store.commit('settaskid', item.id);
       this.$router.push({

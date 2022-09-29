@@ -2,6 +2,7 @@
 <template>
   <div id="allapplication">
     <!-- 全部 -->
+
     <div class="allapp">
       <div v-for="(item, index) in allmenu.children">
         <div class="allapp_item" v-if="item.interface != '/'">
@@ -82,7 +83,7 @@
 <script>
 import * as dd from 'dingtalk-jsapi';
 export default {
-  name: '',
+  name: 'allapplication',
   data() {
     return {
       colorList: [
@@ -114,7 +115,13 @@ export default {
     openDDsp(item, item1) {
       console.log('414', item, item);
       if (item.id == 'file' || item.id == 'task') {
-        this.$router.push({ path: item.mobile_route });
+        this.$router.push({
+          path: item.mobile_route,
+          query: {
+            typename: 'first',
+            itemdata: { file_id: 0, id: '0', parent_id: '0' },
+          },
+        });
       } else {
         this.axiosPost('/project/projectAdd', {
           b_name: item.biao_name,
@@ -158,52 +165,59 @@ export default {
           children: [
             {
               id: 'file',
-              imgsrc: 'icon-file_box_fill-01',
-              mobile_route: '/engineeringDocument/latelyFile',
-              title: '最近文件',
-              mobile_color: '15BC83',
-              mobile_icon: 'icon-zuijinwenjian',
-            },
-            {
-              id: 'file',
-              imgsrc: 'icon-file_box_fill-01',
-              mobile_route: '/engineeringDocument/recycleBin',
-              title: '回收站',
-              mobile_color: 'FF7C00',
-              mobile_icon: 'icon-huishouzhan',
-            },
-            {
-              id: 'file',
-              imgsrc: 'icon-file_box_fill-01',
-              mobile_route: '/engineeringDocument/myCollection',
-              mobile_color: 'F2412C',
-              title: '我的收藏',
-              mobile_icon: 'icon-wodeshoucang',
-            },
-            {
-              id: 'file',
-              imgsrc: 'icon-file_box_fill-01',
-              mobile_route: '/engineeringDocument/DocumenFile',
-              title: '文件',
-              mobile_color: 'F5222D',
-              mobile_icon: 'icon-wenjian',
-            },
-            {
-              id: 'file',
-              imgsrc: 'icon-file_box_fill-01',
-              mobile_route: '/engineeringDocument/standardAtlas',
-              mobile_color: 'FF9F00',
-              mobile_icon: 'icon-kaipiaoshoukuanhuizong',
+              imgsrc: '',
+              title: '工程文档',
+              children: [
+                {
+                  id: 'file',
+                  imgsrc: 'icon-file_box_fill-01',
+                  mobile_route: '/engineeringDocument/latelyFile',
+                  title: '最近文件',
+                  mobile_color: '15BC83',
+                  mobile_icon: 'icon-zuijinwenjian',
+                },
+                {
+                  id: 'file',
+                  imgsrc: 'icon-file_box_fill-01',
+                  mobile_route: '/engineeringDocument/recycleBin',
+                  title: '回收站',
+                  mobile_color: 'FF7C00',
+                  mobile_icon: 'icon-huishouzhan',
+                },
+                {
+                  id: 'file',
+                  imgsrc: 'icon-file_box_fill-01',
+                  mobile_route: '/engineeringDocument/myCollection',
+                  mobile_color: 'F2412C',
+                  title: '我的收藏',
+                  mobile_icon: 'icon-wodeshoucang',
+                },
+                {
+                  id: 'file',
+                  imgsrc: 'icon-file_box_fill-01',
+                  mobile_route: '/engineeringDocument/DocumenFile',
+                  title: '文件',
+                  mobile_color: 'F5222D',
+                  mobile_icon: 'icon-wenjian',
+                },
+                {
+                  id: 'file',
+                  imgsrc: 'icon-file_box_fill-01',
+                  mobile_route: '/engineeringDocument/standardAtlas',
+                  mobile_color: 'FF9F00',
+                  mobile_icon: 'icon-kaipiaoshoukuanhuizong',
 
-              title: '规范图集',
-            },
-            {
-              id: 'file',
-              imgsrc: 'icon-file_box_fill-01',
-              mobile_route: '/engineeringDocument/privateDocuments',
-              mobile_color: '0089FF',
-              title: '私人文件',
-              mobile_icon: 'icon-shoupiaodengji',
+                  title: '规范图集',
+                },
+                {
+                  id: 'file',
+                  imgsrc: 'icon-file_box_fill-01',
+                  mobile_route: '/engineeringDocument/privateDocuments',
+                  mobile_color: '0089FF',
+                  title: '私人文件',
+                  mobile_icon: 'icon-shoupiaodengji',
+                },
+              ],
             },
           ],
         },
@@ -221,6 +235,16 @@ export default {
               title: '任务',
               mobile_color: '15BC83',
               mobile_icon: 'icon-zuijinwenjian',
+              children: [
+                {
+                  id: 'task',
+                  imgsrc: 'icon-file_box_fill-01',
+                  mobile_route: '/task/taskindex',
+                  title: '任务',
+                  mobile_color: '15BC83',
+                  mobile_icon: 'icon-zuijinwenjian',
+                },
+              ],
             },
           ],
         },
@@ -228,8 +252,13 @@ export default {
 
       this.axiosPost('/menu/menuMobile').then(res => {
         if (res.data.code == 1) {
-          let resData = res.data.data.concat(filedata).concat(tasklist);
-          let queryitem = this.$route.query.item;
+          console.log('45454', filedata, tasklist);
+
+          let resData = _.concat(res.data.data, filedata, tasklist);
+
+          //   res.data.data.concat(filedata).concat(tasklist);
+          console.log('45454', resData);
+          let queryitem = this.$store.state.worlitem;
           resData.map((item, index) => {
             if (item.id == queryitem.id) {
               console.log('1221', item);

@@ -22,7 +22,12 @@
         :error.sync="error"
         error-text="请求失败，点击重新加载"
       >
-        <div class="listBody_item1" v-for="(item, index) in proList">
+        <div
+          class="listBody_item1"
+          v-for="(item, index) in proList"
+          :key="index"
+          @click="openView(item)"
+        >
           <div class="listBody_item1_one">{{ item.name }}</div>
           <div class="listBody_item1_two">{{ item.field_one }}</div>
           <div class="listBody_item1_two">{{ item.field_two }}</div>
@@ -57,6 +62,8 @@
   </div>
 </template>
 <script>
+import * as dd from 'dingtalk-jsapi';
+
 export default {
   name: '',
   data() {
@@ -111,6 +118,17 @@ export default {
         dd.biz.navigation.setTitle({
           title: '工作台', //控制标题文本，空字符串表示显示默认文本
           onSuccess: function () {},
+          onFail: function () {},
+        });
+      });
+    },
+    openView(item) {
+      dd.ready(function () {
+        dd.biz.util.openLink({
+          url: item.url, //要打开链接的地址
+          onSuccess: function () {
+            /**/
+          },
           onFail: function () {},
         });
       });

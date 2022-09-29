@@ -290,11 +290,13 @@ export default {
       });
     },
   },
-  mounted() {},
-  created() {
+  mounted() {
     this.$utils.checkding();
     this.gettaskNumber();
     this.getcommonlyTypelist();
+  },
+  created() {
+    console.log('55555', this.$store.state.userInfo.userid);
   },
 };
 </script>
