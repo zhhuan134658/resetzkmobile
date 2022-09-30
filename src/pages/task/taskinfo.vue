@@ -64,12 +64,8 @@
       </template>
     </van-cell>
     <!-- 日期 -->
-    <van-cell
-      class="taskcell"
-      size="large"
-      :border="false"
-      @click="calendarshow = true"
-    >
+
+    <van-cell class="taskcell" size="large" :border="false" @click="selectTime">
       <template #title>
         <!-- <div>设置截止时间</div> -->
         <!-- <div>{{ date }}</div> -->
@@ -78,13 +74,16 @@
         </div>
         <div style="color: #c8c9cc" v-else>设置起止时间</div>
       </template>
+
       <template #icon>
         <van-icon class="left_icon" name="underway-o" size="20" />
       </template>
+
       <template #right-icon>
         <van-icon class="righticon" color="#BEBEBE" name="arrow" />
       </template>
     </van-cell>
+
     <div style="height: 0.03rem; background: #ededed"></div>
     <!-- 备注 -->
     <van-cell class="taskcell" size="large" :border="false">
@@ -253,7 +252,7 @@
       </van-field>
     </div>
 
-    <!--选择日期区间 
+    <!--选择日期区间 -->
     <van-calendar
       color="#1989fa"
       v-model="calendarshow"
@@ -291,7 +290,7 @@
           @click="calendarshowONE = true"
         />
 
-        <van-field name="switch" label="计划工时数" class="couste">
+        <van-field name="switch" label="实际工时数" class="couste">
           <template #input>
             <van-dropdown-menu>
               <van-dropdown-item
@@ -304,7 +303,7 @@
               class="textinput"
               v-model="taskform.man_hour.worktime"
               type="number"
-              placeholder="请输入用户名"
+              placeholder="请选择时间"
               @input="inputChange"
             >
               <template #button>
@@ -314,7 +313,7 @@
           </template>
         </van-field>
         <div style="text-align: center">
-          {{ value1 === '总计' ? `日均${addXS}小时` : `共${addXS}小时` }}
+          {{ value1 === '总计' ? `共${addXS}小时` : `日均${addXS}小时` }}
         </div>
       </van-form>
     </van-popup>
@@ -402,6 +401,10 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
+    selectTime() {
+      console.log('1212');
+      this.calendarshow = true;
+    },
     //   新建子任务
     sontask() {
       this.$router.push({

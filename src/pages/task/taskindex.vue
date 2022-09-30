@@ -6,7 +6,7 @@
         v-model="searchValue"
         left-icon=""
         placeholder="请输入搜索关键词"
-        @search="onSearch"
+        @input="onSearch"
       >
         <template #right-icon>
           <van-icon name="filter-o" />

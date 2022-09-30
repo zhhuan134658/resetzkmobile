@@ -62,7 +62,7 @@ export default {
           filedmodel: 'address', //输入框model
         },
         {
-          fieldtype: 'TextField', //输入框类型
+          fieldtype: 'TextphoneField', //输入框类型
           fieldlable: '电话', //输入框lable
           fieldrequired: false, //是否必填
           filedmodel: 'phone', //输入框model

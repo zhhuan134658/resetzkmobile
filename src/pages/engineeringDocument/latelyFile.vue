@@ -7,7 +7,7 @@
         right-icon="filter-o"
         left-icon=""
         placeholder="请输入搜索关键词"
-        @search="onSearch"
+        @input="onSearch"
       />
     </van-sticky>
     <div class="listBody">

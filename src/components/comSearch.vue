@@ -318,8 +318,9 @@ export default {
     resetSearch() {
       const restData = this.searchForm;
       for (let key in restData) {
-        restData[key] = undefined;
+        restData[key] = '';
       }
+      this.suiteSearch();
     },
     //suiteSearch
     suiteSearch() {

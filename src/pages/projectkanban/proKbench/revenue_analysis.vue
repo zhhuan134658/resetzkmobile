@@ -15,20 +15,18 @@
         :scroll-to-error="true"
       >
         <div v-for="(item, index) in contentList" :key="index">
-          <van-field
-            :readonly="isEdit"
-            class="textarea"
-            v-if="item.fieldtype == 'TextareaField'"
-            v-model="contentInfo[item.content]"
-            rows="2"
-            autosize
-            :label="item.name"
-            type="textarea"
-            maxlength="200"
-            :placeholder="`请输入${item.name}`"
-            show-word-limit
-          />
+          <!-- content: 'main_clause'  -->
 
+          <van-field
+            readonly
+            v-if="allList.includes(item.content)"
+            v-model="contentInfo[item.content]"
+            :name="item.name"
+            maxlength="50"
+            :label="item.name"
+            :placeholder="`请输入${item.name}`"
+            :rules="[{ required: item.fieldrequired }]"
+          />
           <van-field
             :readonly="isEdit"
             v-else
@@ -38,8 +36,9 @@
             :label="item.name"
             :placeholder="`请输入${item.name}`"
             :rules="[{ required: item.fieldrequired }]"
-          /></div
-      ></van-form>
+          />
+        </div>
+      </van-form>
     </div>
     <!-- <div class="div_content">
       <div class="div_one">
@@ -119,7 +118,9 @@
             }}</span>
           </div>
           <div class="cont_one">
-            所属合同<span style="color: #0089ff">{{ item.contract_name }}</span>
+            所属合同<span style="color: #0089ff">{{
+              item.source_contract_name
+            }}</span>
           </div>
           <div class="cont_one">
             合同金额<span style="color: #0089ff">{{
@@ -256,12 +257,13 @@ export default {
         plan_period: '',
         yi_unit: '',
       },
+      allList: ['main_clause', 'riqi', 'jia_unit', 'yi_unit', 'plan_period'],
       contentList: [
         { name: '合同条款：', content: 'main_clause' },
         { name: '结算条款：', content: 'sett_clause' },
         { name: '付款条款：', content: 'pay_clause' },
         { name: '违约条款：', content: 'breach_clause' },
-        // { name: "签约主体：", content: "construction_unit" },
+        { name: '签约时间：', content: 'riqi' },
         { name: '甲方：', content: 'jia_unit' },
         { name: '乙方：', content: 'yi_unit' },
         // { name: "总承包单位：", content: "zong_unit" },

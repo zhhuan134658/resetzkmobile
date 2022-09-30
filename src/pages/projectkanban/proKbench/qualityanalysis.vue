@@ -136,25 +136,25 @@ export default {
       data: [],
       titleAllList: [
         {
-          title: '质量检查条数',
+          title: '质量检查',
           value: 'quality_count',
           imgUrl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//PbsJRtnHiY1663404241260.png',
         },
         {
-          title: '质量整改通知条数',
+          title: '质量整改通知',
           value: 'rectify_notice_count',
           imgUrl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//rccNNr3Mer1663404241896.png',
         },
         {
-          title: '质量整改回复条数',
+          title: '质量整改回复',
           value: 'rectify_reply_count',
           imgUrl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//Edek7iZMHk1663404242074.png',
         },
         {
-          title: '质量事故条数',
+          title: '质量事故',
           value: 'quality_accident_count',
           imgUrl:
             'https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//bjF2FDS2st1663404242243.png',

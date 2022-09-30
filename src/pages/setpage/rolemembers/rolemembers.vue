@@ -7,16 +7,19 @@
         right-icon="filter-o"
         left-icon=""
         placeholder="请输入姓名"
-        @search="onSearch"
+        @input="onSearch"
       />
     </van-sticky>
+
     <div v-if="roleshow">
       <van-cell
         class="cancell"
         :class="active == index ? 'active' : ''"
         v-for="(item, index) in roleList"
         :key="index"
-        :title="`${item.name} (${item.role_number}人)`"
+        :title="`${
+          item.name.length > 12 ? item.name.substring(0, 12) + '...' : item.name
+        } (${item.role_number}人)`"
         is-link
         size="large"
         @click="gopeople(item, index)"

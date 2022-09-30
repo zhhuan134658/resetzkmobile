@@ -59,6 +59,7 @@ export default {
       var option;
 
       option = {
+        legend: {},
         xAxis: {
           type: 'category',
           data: xAxisdata,

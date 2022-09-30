@@ -39,7 +39,7 @@
             :readonly="readfont"
             class="textarea"
             v-if="item.fieldtype == 'TextareaField'"
-            v-model="formData[item.filedmodel]"
+            v-model="contentInfo[item.filedmodel]"
             rows="2"
             autosize
             :label="item.fieldlable"
@@ -52,7 +52,7 @@
           <van-field
             :readonly="readfont"
             v-else
-            v-model="formData[item.filedmodel]"
+            v-model="contentInfo[item.filedmodel]"
             :name="item.fieldlable"
             maxlength="50"
             :label="item.fieldlable"
@@ -97,7 +97,7 @@
           :key="index"
         >
           <div class="unit_table_item_left">
-            <div class="unit_table_item_left_one">{{ item.project_name }}</div>
+            <div class="unit_table_item_left_one">{{ item.full_name }}</div>
             <div class="unit_table_item_left_two">职务：{{ item.zhi_wu }}</div>
             <div class="unit_table_item_left_two">电话：{{ item.mobile }}</div>
           </div>
@@ -320,7 +320,7 @@ export default {
   data() {
     return {
       readfont: true,
-      formData: {
+      contentInfo: {
         id: '',
         build_unit: '', //建设单位
         design_unit: '', //设计单位
@@ -525,7 +525,7 @@ export default {
       this.readfont = !this.readfont;
       if (this.readfont) {
         console.log('保存');
-        this.saveInfo(this.formData);
+        this.saveInfo(this.contentInfo);
       }
     },
     saveInfo(val) {
@@ -763,11 +763,11 @@ export default {
         console.log(this.contentInfo);
       }
     },
-    saveInfo(val) {
-      this.axiosPost('/bulletin/projectSituationAdd', val).then(res => {
-        Toast(res.data.msg);
-      });
-    },
+    // saveInfo(val) {
+    //   this.axiosPost('/bulletin/projectSituationAdd', val).then(res => {
+    //     Toast(res.data.msg);
+    //   });
+    // },
 
     handleFullscreen() {},
     //获取大事件列表

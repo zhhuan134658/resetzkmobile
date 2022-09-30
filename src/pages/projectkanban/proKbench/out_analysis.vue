@@ -91,7 +91,7 @@
       :activeindex="activeindex1"
       :eachid="'dweqasdasda'"
       :eachartData="eachartData1"
-      :tableList="tableList"
+      :tableList="tableList1"
       :tableName="tableName1"
       :fatherMethod="getqualityProblem1"
     ></commoneacharts>
@@ -120,6 +120,41 @@
       :fatherMethod="getqualityProblem3"
     ></commoneacharts>
 
+    <!-- 安全问题关联单位排名 -->
+    <comfont :fontdata="'安全问题关联单位排名'"></comfont>
+
+    <div class="div_eacharts">
+      <div class="div_list">
+        <div
+          v-if="tableList4 && tableList4.length > 0"
+          v-for="(item, index) in tableList4"
+          class="list_item"
+        >
+          <div class="item_top">{{ item.corp_name }}</div>
+
+          <div class="cont_one">
+            合同金额<span style="color: #0089ff">{{ item.money }}</span>
+          </div>
+          <div class="cont_one">
+            付款金额<span style="color: #0089ff">{{ item.pay_money }}</span>
+          </div>
+          <div class="cont_one">
+            已结算产值<span style="color: #0089ff">{{ item.sett_money }}</span>
+          </div>
+          <!-- <div class="cont_one">
+            签证金额<span style="color: #0089ff">{{ item.ivisa_money }}</span>
+          </div> -->
+        </div>
+
+        <div v-else class="aaa">
+          <img
+            src="https://dingyunlaowu.oss-cn-hangzhou.aliyuncs.com/xiezhu//EBC6ydZ7Tj1663407965807.png"
+            alt=""
+          />
+          <!-- <div>暂时还没有数据哦~快去添加</div> -->
+        </div>
+      </div>
+    </div>
     <!-- <commonlist
       :title="'安全问题关联单位排名'"
       :tableList="tableList4"
@@ -188,7 +223,7 @@ export default {
       tableName1: [
         { name: '指标/类型', value: 'type' },
         { name: '已支付金额', value: 'zhi_money' },
-        { name: '已审批金额', value: 'shem_money' },
+        { name: '已结算金额', value: 'shem_money' },
         { name: '未支付金额', value: 'nopay_money' },
         { name: '支付比率', value: 'bi_lv' },
       ],

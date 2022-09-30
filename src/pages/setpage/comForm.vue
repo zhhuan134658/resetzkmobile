@@ -57,6 +57,17 @@
           :rules="[{ required: item.fieldrequired }]"
         />
         <van-field
+          v-else-if="item.fieldtype == 'TextphoneField'"
+          v-model="formData[item.filedmodel]"
+          :name="item.fieldlable"
+          type="tel"
+          maxlength="11"
+          :required="item.fieldrequired"
+          :label="item.fieldlable"
+          :placeholder="`请输入${item.fieldlable}`"
+          :rules="[{ required: item.fieldrequired }]"
+        />
+        <van-field
           v-else
           v-model="formData[item.filedmodel]"
           :name="item.fieldlable"

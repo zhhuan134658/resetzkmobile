@@ -78,6 +78,7 @@ export default {
       var weekLineData = this.eachartData.nameList;
 
       let option = {
+        // legend: {},图示
         backgroundColor: '#fff',
         color: ['#FCB224', '#3296FA'],
         grid: {

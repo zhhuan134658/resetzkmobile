@@ -62,19 +62,16 @@
       </template>
     </van-cell>
     <!-- 日期 -->
-    <van-cell
-      class="taskcell"
-      size="large"
-      :border="false"
-      @click="calendarshow = true"
-    >
+    <van-cell class="taskcell" size="large" :border="false">
       <template #title>
         <!-- <div>设置截止时间</div> -->
         <!-- <div>{{ date }}</div> -->
-        <div v-if="taskform.start_time.length > 0">
+        <div @click="selectTime" v-if="taskform.start_time.length > 0">
           {{ `${taskform.start_time[0]} -- ${taskform.start_time[1]}` }}
         </div>
-        <div style="color: #c8c9cc" v-else>设置起止时间</div>
+        <div @click="selectTime" style="color: #c8c9cc" v-else>
+          设置起止时间
+        </div>
       </template>
       <template #icon>
         <van-icon class="left_icon" name="underway-o" size="20" />
@@ -121,7 +118,7 @@
             class="people_icon"
           />
           <div v-else class="people_icon">
-            {{ item.name[item.name.length] }}
+            {{ item.name[0] }}
           </div>
         </div>
       </div>
@@ -234,7 +231,7 @@
               class="textinput"
               v-model="taskform.man_hour.worktime"
               type="number"
-              placeholder="请输入用户名"
+              placeholder="请选择计划工时"
               @input="inputChange"
             >
               <template #button>
@@ -255,7 +252,7 @@
         >
           <van-icon name="info-o" />
           {{
-            value1 === '总计' ? `日均${addXS || 0}小时` : `共${addXS || 0}小时`
+            value1 === '总计' ? `共${addXS || 0}小时` : `日均${addXS || 0}小时`
           }}
         </div>
       </van-form>
@@ -322,6 +319,10 @@ export default {
   watch: {},
   //⽅法集合
   methods: {
+    selectTime() {
+      console.log('12121');
+      this.calendarshow = true;
+    },
     //   工时
     inputChange() {
       if (this.taskform.man_hour.is_total_day == '每天') {
@@ -500,6 +501,9 @@ export default {
     // 新建
     goCreat() {
       console.log(this.taskform);
+      if (this.taskform.task_name == '') {
+        return this.$toast('请填写任务名称');
+      }
       this.axiosPost('/baselibrary/taskAdd', this.taskform).then(res => {
         this.$router.go(-1);
         this.$toast(res.data.msg);

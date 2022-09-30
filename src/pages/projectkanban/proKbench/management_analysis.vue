@@ -140,7 +140,7 @@
     <comfont :fontdata="'现金流分析'"></comfont>
     <commoneacharts
       :key="pierceTableid"
-      :eachid="casw"
+      :eachid="'dasdaf'"
       :eachartData="eachartData"
       :tableList="tableList"
       :tableName="tableName"
@@ -180,7 +180,7 @@
       :fatherMethod="getqualityProblem3"
     ></commoneacharts>
     <!-- 预期利润分析 -->
-    <comfont :fontdata="'实际利润分析'"></comfont>
+    <comfont :fontdata="'预期利润分析'"></comfont>
 
     <commoneacharts
       :key="pierceTableid4"

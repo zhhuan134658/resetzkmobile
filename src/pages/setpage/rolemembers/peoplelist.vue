@@ -3,7 +3,7 @@
   <div id="peoplelist">
     <div>
       <div class="listitem" v-for="(item, index) in Userlist" :key="index">
-        <div v-if="item.avatar" class="itemimg">
+        <div v-if="item.avatar" class="itemimg1">
           <img :src="item.avatar" alt="" />
         </div>
         <div v-else class="itemimg">
@@ -37,7 +37,7 @@
           v-for="(item, index) in userScopeList"
           :key="index"
         >
-          <div v-if="item.son_avatar" class="itemimg">
+          <div v-if="item.son_avatar" class="itemimg1">
             <img :src="item.son_avatar" alt="" />
           </div>
           <div v-else class="itemimg">
@@ -50,7 +50,7 @@
           <div class="itemname">{{ item.son_name }}</div>
           <div class="deletei" @click="deletepop(item)">删除</div>
         </div>
-        <van-empty v-if="Userlist.length < 1" description="暂无数据" />
+        <van-empty v-if="userScopeList.length < 1" description="暂无数据" />
       </div>
     </van-popup>
   </div>
@@ -166,7 +166,7 @@ export default {
           title: '通讯录', //标题
           corpId: that.$store.state.userInfo.corpid, //企业的corpId
           multiple: true, //是否多选
-          limitTips: '超出了', //超过限定人数返回提示
+          limitTips: '', //超过限定人数返回提示
           maxUsers: 1000, //最大可选人数
           pickedUsers: [], //已选用户
           pickedDepartments: [], //已选部门
