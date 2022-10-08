@@ -135,15 +135,18 @@ export default {
     },
     // 新建
     addData() {
-      this.axiosPost('/baselibrary/supplierinfoAdd', this.formData).then(
-        res => {
-          this.$toast(res.data.msg);
+      this.axiosPost('/baselibrary/supplierinfoMould').then(res => {
+        this.formData.process_code = res.data.data;
+        this.axiosPost('/baselibrary/supplierinfoAdd', this.formData).then(
+          res => {
+            this.$toast(res.data.msg);
 
-          if (res.data.code == 1) {
-            this.$router.go(-1);
-          }
-        },
-      );
+            if (res.data.code == 1) {
+              this.$router.go(-1);
+            }
+          },
+        );
+      });
     },
     //编辑 获取详情
     getInfo(id) {

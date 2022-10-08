@@ -65,11 +65,14 @@ export default {
   methods: {
     // 新建
     addData() {
-      this.axiosPost('/baselibrary/warehouseAdd', this.formData).then(res => {
-        if (res.data.code == 1) {
-          this.$toast(res.data.msg);
-          this.$router.go(-1);
-        }
+      this.axiosPost('/baselibrary/supplierinfoMould').then(res => {
+        this.formData.process_code = res.data.data;
+        this.axiosPost('/baselibrary/warehouseAdd', this.formData).then(res => {
+          if (res.data.code == 1) {
+            this.$toast(res.data.msg);
+            this.$router.go(-1);
+          }
+        });
       });
     },
     //编辑 获取详情

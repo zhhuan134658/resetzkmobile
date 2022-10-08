@@ -10,8 +10,8 @@
             <i
               :class="
                 item1.mobile_icon
-                  ? `font_family ${item1.mobile_icon}`
-                  : 'font_family icon-zanwuxinxi'
+                  ? `iconfont ${item1.mobile_icon}`
+                  : 'iconfont icon-zanwuxinxi'
               "
               style="font-size: 0.8rem"
               :style="`color:#${
@@ -36,11 +36,33 @@
               color="#F2412C"
               size="16"
             />
-            <i
+            <div
+              class="customDiv"
+              :style="`background-color:#${
+                item1.mobile_color ? item1.mobile_color : '15BC83'
+              }`"
+            >
+              <i
+                :class="
+                  item1.mobile_icon
+                    ? `iconfont ${item1.mobile_icon}`
+                    : 'iconfont icon-zanwuxinxi'
+                "
+                style="font-size: 0.6rem; color: #fff"
+              ></i>
+            </div>
+            <div class="sonfont">
+              {{
+                item1.title.length > 6
+                  ? item1.title.substring(0, 6) + '...'
+                  : item1.title
+              }}
+            </div>
+            <!-- <i
               :class="
                 item1.mobile_icon
-                  ? `font_family ${item1.mobile_icon}`
-                  : 'font_family icon-zanwuxinxi'
+                  ? `iconfont ${item1.mobile_icon}`
+                  : 'iconfont icon-zanwuxinxi'
               "
               style="font-size: 0.8rem"
               :style="`color:#${
@@ -54,7 +76,7 @@
                   ? item1.title.substring(0, 6) + '...'
                   : item1.title
               }}
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -72,17 +94,32 @@
               :color="item1.isselected != 0 ? '#F2412C' : '#0089FF'"
               size="16"
             />
-            <i
+            <div
+              class="customDiv"
+              :style="`background-color:#${
+                item1.mobile_color ? item1.mobile_color : '15BC83'
+              }`"
+            >
+              <i
+                :class="
+                  item1.mobile_icon
+                    ? `iconfont ${item1.mobile_icon}`
+                    : 'iconfont icon-zanwuxinxi'
+                "
+                style="font-size: 0.6rem; color: #fff"
+              ></i>
+            </div>
+            <!-- <i
               :class="
                 item1.mobile_icon
-                  ? `font_family ${item1.mobile_icon}`
-                  : 'font_family icon-zanwuxinxi'
+                  ? `iconfont ${item1.mobile_icon}`
+                  : 'iconfont icon-zanwuxinxi'
               "
               style="font-size: 0.8rem"
               :style="`color:#${
                 item1.mobile_color ? item1.mobile_color : '15BC83'
               }`"
-            ></i>
+            ></i> -->
             <div class="sonfont">
               {{
                 item1.name.length > 6

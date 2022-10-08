@@ -65,17 +65,22 @@
           :key="index"
           @click="openDDsp(item1)"
         >
-          <i
-            :class="
-              item1.mobile_icon
-                ? `font_family ${item1.mobile_icon}`
-                : 'font_family icon-zanwuxinxi'
-            "
-            style="font-size: 0.8rem"
-            :style="`color:#${
+          <div
+            class="customDiv"
+            :style="`background-color:#${
               item1.mobile_color ? item1.mobile_color : '15BC83'
             }`"
-          ></i>
+          >
+            <i
+              :class="
+                item1.mobile_icon
+                  ? `iconfont ${item1.mobile_icon}`
+                  : 'iconfont icon-zanwuxinxi'
+              "
+              style="font-size: 0.6rem; color: #fff"
+            ></i>
+          </div>
+
           <div class="sonfont">
             {{
               item1.title.length > 6
