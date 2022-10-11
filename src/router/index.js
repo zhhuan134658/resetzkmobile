@@ -42,6 +42,11 @@ const routes = [
             name: 'editmenu',
             component: () => import('../pages/homePage/editmenu.vue'),
           },
+          {
+            path: '/homePage/editmenunew', //首页-我的工作
+            name: 'editmenunew',
+            component: () => import('../pages/homePage/editmenunew.vue'),
+          },
         ],
       },
       //项目看板

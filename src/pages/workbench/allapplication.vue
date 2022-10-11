@@ -23,8 +23,8 @@
               <i
                 :class="
                   item1.mobile_icon
-                    ? `font_family ${item1.mobile_icon}`
-                    : 'font_family icon-zanwuxinxi'
+                    ? `iconfont ${item1.mobile_icon}`
+                    : 'iconfont icon-zanwuxinxi'
                 "
                 style="font-size: 0.8rem"
                 :style="`color:#${
@@ -57,8 +57,8 @@
               <i
                 :class="
                   item.mobile_icon
-                    ? `font_family ${item.mobile_icon}`
-                    : 'font_family icon-zanwuxinxi'
+                    ? `iconfont ${item.mobile_icon}`
+                    : 'iconfont icon-zanwuxinxi'
                 "
                 style="font-size: 0.8rem"
                 :style="`color:#${
@@ -153,10 +153,10 @@ export default {
       }
     },
     get() {
-      this.$toast.loading({
-        message: '加载中...',
-        duration: 0,
-      });
+      //   this.$toast.loading({
+      //     message: '加载中...',
+      //     duration: 0,
+      //   });
       let filedata = [
         {
           id: 'file',
@@ -269,7 +269,7 @@ export default {
           });
 
           console.log('resData', resData);
-          this.$toast.clear();
+          //   this.$toast.clear();
         }
       });
     },

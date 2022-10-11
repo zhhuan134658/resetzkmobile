@@ -1,5 +1,7 @@
 # demo
 
+蓝湖 移动端使用 REM 120 倍
+
 服务器 public 下的 css 文件夹 是前端上传的 css 文件 作用是切换主题是使用的 css 文件 不能删除
 前端 UI 框架 ant-design-vue 按需引入
 axios post 请求 this.axiosPost('',{}).then(res=>{})

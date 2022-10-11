@@ -53,7 +53,13 @@
                 item.project_status
               }}</van-tag>
             </div>
-            <div class="itemright">已同意</div>
+            <div class="itemright">
+              {{
+                item.project_type.length > 4
+                  ? item.project_type.substring(0, 4) + '...'
+                  : item.project_type
+              }}
+            </div>
             <!-- <div class="itemright">{{item.status}}</div> -->
           </div>
 

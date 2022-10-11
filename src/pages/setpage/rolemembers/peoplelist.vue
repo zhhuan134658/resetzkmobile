@@ -64,7 +64,7 @@ export default {
     return {
       popupshow: false,
       sheetshow: false,
-      actions: [{ name: '删除' }, { name: '查看' }, { name: '添加管理范围' }],
+      actions: [{ name: '查看' }, { name: '添加管理范围' }, { name: '删除' }],
       Userlist: [],
       noUserList: [],
       checkitem: {},
@@ -102,7 +102,12 @@ export default {
       if (item.name == '删除') {
         _this.deleteitem(_this.checkitem);
       } else if (item.name == '添加管理范围') {
-        _this.addguamli('2');
+        _this.getuserScopeList();
+
+        setTimeout(() => {
+          _this.addguamli('2');
+        }, 500);
+
         // this.adduserScopeAdd(5);
       } else {
         _this.popupshow = true;
@@ -161,6 +166,13 @@ export default {
     //添加人员.
     addguamli(type) {
       const that = this;
+      let pickedUsers = [];
+
+      that.userScopeList.map(item => {
+        pickedUsers.push(item.son_userid);
+      });
+
+      console.log(pickedUsers);
       dd.ready(function () {
         dd.biz.contact.complexPicker({
           title: '通讯录', //标题
@@ -168,7 +180,7 @@ export default {
           multiple: true, //是否多选
           limitTips: '', //超过限定人数返回提示
           maxUsers: 1000, //最大可选人数
-          pickedUsers: [], //已选用户
+          pickedUsers: type == 1 ? [] : pickedUsers, //已选用户
           pickedDepartments: [], //已选部门
           disabledUsers: that.noUserList, //不可选用户
           disabledDepartments: [], //不可选部门
