@@ -208,7 +208,7 @@ export default {
 
         if (resDATA.length > 0) {
           resDATA.forEach(item => {
-            // console.log('77777', Object.keys(item));
+            console.log('77777', Object.keys(item));
             this.tableclumes = Object.keys(item);
 
             let newdata = [
